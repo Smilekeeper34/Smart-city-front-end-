@@ -20,19 +20,35 @@
             "outputPath": "dist/smart-city-portal",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/assets/css/bootstrap.min.css",
+              "src/assets/css/lineicons.css",
+              "src/assets/css/quill/snow.css",
+              "src/assets/css/fullcalendar.css",
+              "src/assets/css/morris.css",
+              "src/assets/css/datatable.css",
+              "src/assets/css/main.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/bootstrap.bundle.min.js",
+              "src/assets/js/Chart.min.js",
+              "src/assets/js/apexcharts.min.js",
+              "src/assets/js/dynamic-pie-chart.js",
+              "src/assets/js/moment.min.js",
+              "src/assets/js/fullcalendar.js",
+              "src/assets/js/jvectormap.min.js",
+              "src/assets/js/world-merc.js",
+              "src/assets/js/polyfill.js",
+              "src/assets/js/quill.min.js",
+              "src/assets/js/datatable.js",
+              "src/assets/js/Sortable.min.js",
+              "src/assets/js/main.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -82,19 +98,11 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
+            "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.scss"],
             "scripts": []
           }
         }
