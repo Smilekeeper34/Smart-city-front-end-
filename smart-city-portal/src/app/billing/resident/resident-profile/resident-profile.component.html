@@ -1,5 +1,9 @@
+ 
+ <script src="contenteditable.directive.ts"></script>
+ 
+ 
  <!-- ========== section start ========== -->
- <section class="section">
+ <section class="section" >
     <div class="container-fluid">
       <!-- ========== title-wrapper start ========== -->
       <div class="title-wrapper pt-30">
@@ -16,42 +20,28 @@
       </div>
       <!-- ========== title-wrapper end ========== -->
 
-      <div class="row">
+      <div class="row" *ngIf="user">
         <div class="col-xxl-9 col-lg-8">
           <div class="profile-wrapper mb-30">
             <div class="profile-cover">
               <img src="assets/images/profile/profile-cover.jpg" alt="cover-image" />
-              <div class="update-image">
-                <input type="file" />
-                <label for=""><i class="lni lni-camera"></i> Edit Cover Photo
-                </label>
-              </div>
             </div>
             <div class="d-md-flex">
               <div class="profile-photo">
                 <div class="image">
                   <img src="assets/images/profile/profile-image.png" alt="profile" />
-                  <div class="update-image">
-                    <input type="file" />
-                    <label for=""><i class="lni lni-camera"></i></label>
-                  </div>
                 </div>
                 <div class="profile-meta pt-25">
-                  <h5 class="text-bold mb-10">John Doe</h5>
-                  <p class="text-sm">Founder, Abc Company</p>
+                  <h5 class="text-bold mb-10">{{ user?.firstName }} {{ user?.lastName }}</h5>
+                  <p class="text-sm">{{ user?.email }}</p>
                 </div>
               </div>
               <div class="profiles-activities w-100 pt-30">
                 <ul class="d-flex align-items-center">
                   <li class="mr-30">
-                    <p><strong>234</strong> Posts</p>
+                    <p>Account Number : <strong>{{ user?.customerId }}</strong></p>
                   </li>
-                  <li class="mr-30">
-                    <p><strong>34K</strong> Followers</p>
-                  </li>
-                  <li class="mr-30">
-                    <p><strong>4K</strong> Following</p>
-                  </li>
+                 
                   <li class="ms-auto">
                     <div class="more-btn-wrapper">
                       <button class="more-btn dropdown-toggle" id="moreAction" data-bs-toggle="dropdown"
@@ -60,10 +50,10 @@
                       </button>
                       <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="moreAction">
                         <li class="dropdown-item">
-                          <a href="#0" class="text-gray">Add All</a>
+                          <a  class="text-gray" *ngIf="!editMode" (click)="toggleEditMode()">Edit Profile</a>
                         </li>
                         <li class="dropdown-item">
-                          <a href="#0" class="text-gray">Remove All</a>
+                          <a  class="text-gray"*ngIf="editMode" (click)="saveChanges()">Save Changes</a>
                         </li>
                       </ul>
                     </div>
@@ -72,31 +62,109 @@
               </div>
             </div>
             <div class="profile-info">
-              <h5 class="text-bold mb-15">About Me</h5>
-              <p class="text-sm mb-30">
-                Hello there, I am an expert Web & UI/UX Designer. I am a
-                full-time Freelancer and my passion is to satisfy my buyers
-                by giving 100% best quality work. I will Design Landing
-                page, UI/UX Design, web template design E-mail template
-                design Flyer Design, All Print Media Design, etc..
-                <a href="#0" class="text-medium text-dark">[Read More]</a>
-              </p>
-
-              <ul class="socials">
-                <li>
-                  <a href="#0"><i class="lni lni-facebook-fill"></i></a>
-                </li>
-                <li>
-                  <a href="#0"><i class="lni lni-twitter-fill"></i></a>
-                </li>
-                <li>
-                  <a href="#0"><i class="lni lni-instagram-fill"></i></a>
-                </li>
-                <li>
-                  <a href="#0"><i class="lni lni-behance-original"></i></a>
-                </li>
-              </ul>
+              <h5 class="text-bold mb-15">Account Details</h5>
+              
+              <div class="row">
+                <div class="col-6">
+                  <p class="text-sm">
+                    <span class="text-bold mb-15"  *ngIf="!editMode">First Name : </span> {{user?.firstName}}
+                  </p>
+                  
+                </div>
+                <!-- end col -->
+                <div class="col-6">
+                  <p class="text-sm ">
+                    <span class="text-bold mb-15">Last Name : </span> {{user?.lastName}}
+                  </p>
+                </div>
+                <!-- end col -->
+                <div class="col-6">
+                  <p class="text-sm">
+                    <span class="text-bold mb-15">dateOfBirth: </span> <span contenteditable="true" [(ngModel)]="user.dateOfBirth"></span>
+                  </p>
+                </div>
+                <!-- end col -->
+                <div class="col-6">
+                  <p class="text-sm">
+                    <span class="text-bold mb-15">email : </span> {{user?.email}}
+                  </p>
+                </div>
+                <!-- end col -->
+                <div class="col-6">
+                  <p class="text-sm">
+                    <span class="text-bold mb-15">Phone Number : </span> {{user?.contactNumber}}
+                  </p>
+                </div>
+                <!-- end col -->
+                <div class="col-6">
+                  <p class="text-sm">
+                    <span class="text-bold mb-15">gender: </span> {{user?.gender}}
+                  </p>
+                </div>
+                <!-- end col -->
+                <div class="col-6">
+                  <p class="text-sm">
+                    <span class="text-bold mb-15">nationalID: </span> {{user?.nationalID}}
+                  </p>
+                </div>
+                <!-- end col -->
+                <div class="col-6">
+                  <p class="text-sm">
+                    <span class="text-bold mb-15">occupation: </span> {{user?.occupation}}
+                  </p>
+                </div>
+                <!-- end col -->
+                <div class="col-6">
+                  <p class="text-sm">
+                    <span class="text-bold mb-15">emergencyContactName: </span> {{user?.emergencyContactName}}
+                  </p>
+                </div>
+                <!-- end col -->
+                <div class="col-6">
+                  <p class="text-sm">
+                    <span class="text-bold mb-15">streetName: </span> {{user?.streetName}}
+                  </p>
+                </div>
+                <!-- end col -->
+                <div class="col-6">
+                  <p class="text-sm">
+                    <span class="text-bold mb-15">suburbName: </span> {{user?.suburbName}}
+                  </p>
+                </div>
+                <!-- end col -->
+                <div class="col-6">
+                  <p class="text-sm">
+                    <span class="text-bold mb-15">city: </span> {{user?.city}}
+                  </p>
+                </div>
+                <!-- end col -->
+                <div class="col-6">
+                  <p class="text-sm">
+                    <span class="text-bold mb-15">state: </span> {{user?.state}}
+                  </p>
+                </div>
+                <!-- end col -->
+                <div class="col-6">
+                  <p class="text-sm">
+                    <span class="text-bold mb-15">zipCode: </span> {{user?.zipCode}}
+                  </p>
+                </div>
+                <!-- end col -->
+                <div class="col-6">
+                  <p class="text-sm">
+                    <span class="text-bold mb-15">country: </span> {{user?.country}}
+                  </p>
+                </div>
+                <!-- end col -->
+                <div class="col-6">
+                  <p class="text-sm">
+                    <span class="text-bold mb-15">otherAddressDetails: </span> {{user?.otherAddressDetails}}
+                  </p>
+                </div>
+                <!-- end col -->
+              </div>
             </div>
+       
           </div>
           <!-- end card -->
 

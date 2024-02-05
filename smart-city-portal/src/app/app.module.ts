@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +17,11 @@ import { ResidentProfileComponent } from './billing/resident/resident-profile/re
 import { NavComponent } from './common/nav/nav.component';
 import { LayoutComponent } from './common/layout/layout.component';
 import { SettingTabComponent } from './common/setting-tab/setting-tab.component';
+import { ResidentBillingComponent } from './billing/resident/resident-billing/resident-billing.component';
+import { ResidentBillInvoiceComponent } from './billing/resident/resident-bill-invoice/resident-bill-invoice.component';
+import { ResidentBillPaymentsComponent } from './billing/resident/resident-bill-payments/resident-bill-payments.component';
+import { ResidentConfigurationsComponent } from './billing/resident/resident-configurations/resident-configurations.component';
+import { HomepageComponent } from './common/homepage/homepage.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +35,12 @@ import { SettingTabComponent } from './common/setting-tab/setting-tab.component'
     ResidentProfileComponent,
     NavComponent,
     LayoutComponent,
-    SettingTabComponent
+    SettingTabComponent,
+    ResidentBillingComponent,
+    ResidentBillInvoiceComponent,
+    ResidentBillPaymentsComponent,
+    ResidentConfigurationsComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +48,7 @@ import { SettingTabComponent } from './common/setting-tab/setting-tab.component'
     PagesRoutes,
     ReactiveFormsModule,
     HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,OnInit ,HostListener} from '@angular/core';
 import { sideData } from './sideData';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
