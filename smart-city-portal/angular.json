@@ -26,6 +26,7 @@
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "src/styles.scss",
+              
               "src/assets/css/bootstrap.min.css",
               "src/assets/css/lineicons.css",
               "src/assets/css/quill/snow.css",
