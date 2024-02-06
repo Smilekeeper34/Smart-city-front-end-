@@ -43,10 +43,10 @@ a {
 }
 
 .app {
-  min-height: 80vh;
+  // min-height: 80vh;
 //   width: 98%;
   max-width: 1600px;
-  background-color: (#ebebeb);
+  background-color: (transparent);
   padding: 2vw 4vw 6vw;
   display: flex;
   flex-direction: column;
@@ -189,7 +189,7 @@ a {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  color: (#969593);
+  color: transparent;
   a {
     display: flex;
     align-items: center;
@@ -490,7 +490,7 @@ a {
   background-color: (--c-gray-700);
   padding: 0.5em 1.5em;
   border: 0;
-  color: (#f1f1f1);
+  color: (#648edd);
   transition: 0.25s ease;
   cursor: pointer;
   &:hover,

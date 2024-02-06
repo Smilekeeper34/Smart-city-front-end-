@@ -1,49 +1,140 @@
-<!-- ========== main-wrapper start ========== -->
-<main class="main-wrapper  align-items-center justify-content-center">
-  <!-- ========== signin-section start ========== -->
-  <section class="signin-section">
-    <div class="form-bg">
-      <div class="container">
-        <div class="row justify-content-center"> <!-- Center the form horizontally -->
-          <div class="col-lg-8 col-md-10">
-            <div class="form-container">
-              <div class="form-icon">
-                <i class="fa fa-user-circle"></i>
-                <span class="signup">
-                  <a href="">Don't have an account? Signup</a>
-                </span>
-              </div>
-              <form class="form-horizontal" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-                <h3 class="title">Resident Login</h3>
-                <div class="form-group">
-                  <span class="input-icon">
-                    <i class="fa fa-envelope"></i>
-                  </span>
-                  <input class="form-control" type="email" placeholder="Email Address" formControlName="email">
-                  <div *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched">Email is required.</div>
-                  <div *ngIf="loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched">Please enter a valid email address.</div>
-                </div>
-                <div class="form-group">
-                  <span class="input-icon">
-                    <i class="fa fa-lock"></i>
-                  </span>
-                  <input class="form-control" type="password" placeholder="Password" formControlName="password">
-                  <div *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched">Password is required.</div>
-                </div>
-                <div *ngIf="errorMessage" class="error-message alert alert-danger" role="alert">
-                  {{ errorMessage }}
-                </div>
-                <button class="btn signin" type="submit" [disabled]="!loginForm.valid">Login</button>
-                <span class="forgot-pass">
-                  <a href="#">Forgot Username/Password?</a>
-                </span>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
+<body>
+  <input type="radio" name="optionScreen" id="SignIn" hidden checked />
+  <input type="radio" name="optionScreen" id="SignUp" hidden />
+  
+
+
+  <section>
+    <div id="logo">
+      <img src="assets/images/logo/logo.svg" alt="Smart-Logo" width="60" />
+      <h1>Smart City</h1>
     </div>
+
+    <nav>
+      <label for="SignIn">Sign In</label>
+      <label for="SignUp">Sign Up</label>
+    </nav>
+
+    <form
+      action=""
+      id="SignInFormData"
+      [formGroup]="loginForm"
+      (ngSubmit)="onSubmit()"
+      
+    >
+      <input
+        type="text"
+        
+        placeholder="Email"
+        formControlName="email"
+      />
+      <div
+        *ngIf="
+          loginForm.get('email')?.hasError('required') &&
+          loginForm.get('email')?.touched
+        "
+      >
+        Email is required.
+      </div>
+      <div
+        *ngIf="
+          loginForm.get('email')?.hasError('email') &&
+          loginForm.get('email')?.touched
+        "
+      >
+        Please enter a valid email address.
+      </div>
+      <input
+        type="password"
+        id="password"
+        placeholder="Password"
+        formControlName="password"
+      />
+      <div
+        *ngIf="
+          loginForm.get('password')?.hasError('required') &&
+          loginForm.get('password')?.touched
+        "
+      >
+        Password is required.
+      </div>
+
+      <!-- <span>
+        <input type="checkbox" id="staySingedIn" checked>
+        <label for="staySingedIn">stay Signed In</label>
+      </span> -->
+      <button type="submit" title="Sing In" [disabled]="!loginForm.valid">
+        Sing In
+      </button>
+      <div
+        *ngIf="errorMessage"
+        class="error-message alert alert-danger"
+        role="alert"
+      >
+        {{ errorMessage }}
+      </div>
+      <a id="forgotPassword">Forgot Your Password?</a>
+    </form>
+
+    <form
+      [formGroup]="registrationForm"
+      (ngSubmit)="Register()"
+      id="SignUpFormData"
+      
+    >
+      <div class="row">
+        <input
+          class="col-4"
+          type="text"
+          
+          placeholder="First Name"
+          formControlName="firstName"
+        />
+        <input
+          class="col-5 ml-2"
+          type="text"
+          
+          placeholder="Last Name"
+          formControlName="lastName"
+        />
+        <input
+          class="col-6"
+          type="email"
+          id="email"
+          placeholder="E-mail"
+          formControlName="email"
+        />
+        <div
+          *ngIf="
+            registrationForm.get('email')?.hasError('required') &&
+            registrationForm.get('email')?.touched
+          "
+        >
+          Email is required.
+        </div>
+        <div
+          *ngIf="
+            registrationForm.get('email')?.hasError('email') &&
+            registrationForm.get('email')?.touched
+          "
+        >
+          Please enter a valid email address.
+        </div>
+        <input
+          class="col-4 ml-1"
+          type="tel"
+          placeholder="Phone Number"
+          formControlName="contactNumber"
+        />
+        <input
+          class="col-8"
+          type="password"
+          placeholder="New Password"
+          formControlName="password"
+        />
+      </div>
+
+      <button class="col-8" type="submit" title="Sing Up">Sing Up</button>
+    </form>
   </section>
-  <!-- ========== signin-section end ========== -->
-</main>
-<!-- ========== main-wrapper end ========== -->
+</body>

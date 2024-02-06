@@ -8,3 +8,19 @@
 .bottom-div{
     margin-top: auto;
 }
+/* Animation for active route */
+@keyframes fadeInAndColorChange {
+    from {
+      opacity: 0;
+      color: #000; /* Change to the initial color */
+    }
+    to {
+      opacity: 1;
+      color: #ff0000; /* Change to the target color */
+    }
+  }
+  
+  .activeRoute {
+    /* Add other styles for the active route */
+    animation: fadeInAndColorChange 0.15s ease; 
+  }

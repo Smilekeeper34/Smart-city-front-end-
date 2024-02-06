@@ -4,8 +4,8 @@
     <nav class="sidebar-nav pt-5">
       <ul>
 
-        <li class="nav-item" *ngFor="let item of menuItems">
-          <a [ngClass]="checkActiveRouter(item.link)? 'activeRoute ' : 'inactiveRoute'" (click)="changeRouter(item.link)">
+        <li class="nav-item" *ngFor="let item of menuItems" routerLinkActive="activeRoute">
+          <a [routerLink]="item.link" (click)="changeRouter(item.link)">
             <span class="icon"><i [class]="item.icon"></i></span>
             <span>
               {{item.name}}

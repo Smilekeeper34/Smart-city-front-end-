@@ -139,3 +139,4 @@
     (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
   )
 })();
+
