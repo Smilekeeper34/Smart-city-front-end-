@@ -22,6 +22,7 @@ import { ResidentBillInvoiceComponent } from './billing/resident/resident-bill-i
 import { ResidentBillPaymentsComponent } from './billing/resident/resident-bill-payments/resident-bill-payments.component';
 import { ResidentConfigurationsComponent } from './billing/resident/resident-configurations/resident-configurations.component';
 import { HomepageComponent } from './common/homepage/homepage.component';
+import { AdminCreateComponent } from './billing/admin/admin-create/admin-create.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { HomepageComponent } from './common/homepage/homepage.component';
     ResidentBillInvoiceComponent,
     ResidentBillPaymentsComponent,
     ResidentConfigurationsComponent,
-    HomepageComponent
+    HomepageComponent,
+    AdminCreateComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,35 @@
+<div class="main pt-10">
+  <form class="signup" [formGroup]="createUserForm" autocomplete="off">
+    <h1 class="m-1 pb-2">Create account</h1>
+
+    <div class="signup__field">
+      <input
+        class="signup__input"
+        type="text"
+        name="email"
+        id="email"
+        required
+        formControlName="username"
+      />
+      <label class="signup__label" for="email">Email</label>
+    </div>
+
+    <div class="signup__field">
+      <input
+        class="signup__input"
+        type="password"
+        name="password"
+        id="password"
+        required
+        formControlName="password"
+      />
+      <label class="signup__label" for="password">Password</label>
+    </div>
+
+    <button (click)="createUser()" [disabled]="isLoading">
+      Create Acoount
+    </button>
+  </form>
+  <div *ngIf="responseMessage">{{ responseMessage }}</div>
+  <div *ngIf="errorMessage">{{ errorMessage }}</div>
+</div>

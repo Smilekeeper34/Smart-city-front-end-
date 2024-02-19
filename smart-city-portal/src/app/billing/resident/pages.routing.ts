@@ -6,6 +6,7 @@ import { ResidentBillingComponent } from './resident-billing/resident-billing.co
 import { ResidentBillInvoiceComponent } from './resident-bill-invoice/resident-bill-invoice.component';
 import { ResidentBillPaymentsComponent } from './resident-bill-payments/resident-bill-payments.component';
 import { ResidentConfigurationsComponent } from './resident-configurations/resident-configurations.component';
+import { AdminCreateComponent } from '../admin/admin-create/admin-create.component';
 
 const routes: Routes = [
     {
@@ -36,6 +37,10 @@ const routes: Routes = [
             {
                 path: 'config',
                 component: ResidentConfigurationsComponent,
+              },
+            {
+                path: 'createadmin',
+                component: AdminCreateComponent,
               },
         ]
     },
