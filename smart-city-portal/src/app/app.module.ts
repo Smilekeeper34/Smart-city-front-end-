@@ -23,6 +23,9 @@ import { ResidentBillPaymentsComponent } from './billing/resident/resident-bill-
 import { ResidentConfigurationsComponent } from './billing/resident/resident-configurations/resident-configurations.component';
 import { HomepageComponent } from './common/homepage/homepage.component';
 import { AdminCreateComponent } from './billing/admin/admin-create/admin-create.component';
+import { CreateTarriffsComponent } from './billing/admin/create-tarriffs/create-tarriffs.component';
+import { PaginationComponent } from './common/pagination/pagination.component';
+import { CreateCustomerComponent } from './billing/operator/create-customer/create-customer.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +45,10 @@ import { AdminCreateComponent } from './billing/admin/admin-create/admin-create.
     ResidentBillPaymentsComponent,
     ResidentConfigurationsComponent,
     HomepageComponent,
-    AdminCreateComponent
+    AdminCreateComponent,
+    CreateTarriffsComponent,
+    PaginationComponent,
+    CreateCustomerComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,192 @@
+<!-- ========== tab components start ========== -->
+<section class="tab-components">
+    <div class="container-fluid">
+      <!-- ========== title-wrapper start ========== -->
+      <div class="title-wrapper pt-30">
+        <div class="row align-items-center">
+          <div class="col-lg-5 col-md-6">
+            <div class="title">
+              <h2>Create Customer</h2>
+            </div>
+          </div>
+          <!-- end col -->
+        </div>
+        
+        <!-- end row -->
+      </div>
+      <!-- ========== title-wrapper end ========== -->
+
+      <!-- ========== form-layout-wrapper start ========== -->
+      <div class="form-layout-wrapper">
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="card-style mb-30">
+              <h6 class="mb-25">Customer Details</h6>
+              <form [formGroup]="customerForm">
+                <div class="row">
+                    <div class="col-6">
+                      <div class="input-style-1">
+                        <label>First Name</label>
+                        <input type="text" name="firstName" placeholder=" First Name" required formControlName="firstName"/>
+                      </div>
+                    </div>
+                    <!-- end col -->
+                    <div class="col-6">
+                      <div class="input-style-1">
+                        <label>Last Name</label>
+                        <input type="text" name="lastName" placeholder="Last Name" required formControlName="lastName" />
+                      </div>
+                    </div>
+                    <!-- end col -->
+                    <div class="col-lg-6">
+                      <div class="input-style-1">
+                        <label>Phone Number</label>
+                        <input type="tel" name="contactNumber" placeholder="617-802-1898" formControlName="contactNumber" />
+                      </div>
+                    </div>
+                    <!-- end col -->
+                    <div class="col-8">
+                      <div class="input-style-1">
+                        <label>Street Name</label>
+                        <input type="text" name="streetName" placeholder="Street Name" formControlName="streetName" />
+                      </div>
+                    </div>
+                    <!-- end col -->
+                    <div class="col-sm-6">
+                      <div class="input-style-1">
+                        <label>Suburb Name</label>
+                        <input type="text" name="suburbName" placeholder="Masasa" formControlName="suburbName"/>
+                      </div>
+                    </div>
+                    <!-- end col -->
+                    <div class="col-4">
+                      <div class="input-style-1">
+                        <label>City</label>
+                        <input type="text" name="city" placeholder="City" formControlName="city" />
+                      </div>
+                    </div>
+                    <!-- end col -->
+                    <div class="col-6">
+                      <div class="input-style-1">
+                        <label>Province</label>
+                        <input type="text" name="state" placeholder="Province" formControlName="state" />
+                      </div>
+                    </div>
+                    <!-- end col -->
+                    <div class="col-12">
+                      <div class="input-style-1">
+                        <label>Email</label>
+                        <input type="email" name="email" placeholder="email" required formControlName="email" />
+                      </div>
+                    </div>
+                    <!-- end col -->
+                    <div class="col-6">
+                      <div class="input-style-1">
+                        <label>Date of Birth</label>
+                        <input type="date" name="dateOfBirth" formControlName="dateOfBirth" />
+                      </div>
+                    </div>
+                    <!-- end col -->
+                    <div class="col-6">
+                      <div class="input-style-1">
+                        <label>Password</label>
+                        <input type="password" name="password" required formControlName="password" />
+                      </div>
+                    </div>
+                    <!-- end col -->
+                    <div class="col-6">
+                        <div class="select-style-1">
+                          <label>Gender</label>
+                          <div class="select-position">
+                              <select name="Gender" formControlName="gender">
+                                  <option value="Male">Male</option>
+                                  <option value="Female">Female</option>
+                                  <option value="Other">Other</option>
+                                </select>
+                          </div>
+                         
+                        </div>
+                      </div>
+                      <!-- end col -->
+                    <div class="col-6">
+                      <div class="input-style-1">
+                        <label>National ID</label>
+                        <input type="text" name="nationalID" formControlName="nationalID" />
+                      </div>
+                    </div>
+                    <!-- end col -->
+                    <div class="col-12">
+                      <div class="input-style-1">
+                        <label>Occupation</label>
+                        <input type="text" name="occupation" formControlName="occupation" />
+                      </div>
+                    </div>
+                    <!-- end col -->
+                    <div class="col-6">
+                      <div class="input-style-1">
+                        <label>Emergency Contact Name</label>
+                        <input type="text" name="emergencyContactName" formControlName="emergencyContactName"/>
+                      </div>
+                    </div>
+                    <!-- end col -->
+                    <div class="col-6">
+                      <div class="input-style-1">
+                        <label>Emergency Contact Number</label>
+                        <input type="tel" name="emergencyContactNumber" formControlName="emergencyContactNumber" />
+                      </div>
+                    </div>
+                    <!-- end col -->
+                    <div class="col-6">
+                      <div class="select-style-1">
+                        <label>Preferred Communication Method</label>
+                        <div class="select-position">
+                            <select name="preferredCommunicationMethod" formControlName="preferredCommunicationMethod">
+                                <option value="Email">Email</option>
+                                <option value="Phone">Phone</option>
+                                <option value="SMS">SMS</option>
+                              </select>
+                        </div>
+                       
+                      </div>
+                    </div>
+                    <!-- end col -->
+                    <div class="col-6">
+                        <div class="select-style-1">
+                          <label>Preffered Billling </label>
+                          <div class="select-position">
+                            <select name="Preffered Billling" formControlName="billingPreference">
+                              <option value="Email">Email</option>
+                              <option value="Paper">Paper</option>
+                              <option value="OnlinePortal">OnlinePortal</option>
+                            </select>
+                          </div>
+                        </div>
+                        <!-- end select -->
+                      </div>
+                      <!-- end col -->
+                    
+                </div>
+                <!-- end row -->
+              </form>
+            </div>
+            <!-- end card -->
+          </div>
+          <!-- end col -->
+          <div class="col-lg-3">
+            <div class="button-group d-flex justify-content-center flex-wrap">
+              <button class="main-btn primary-btn btn-hover m-2" type="submit" (click)="onSubmit()">
+                Save Details
+              </button>
+              <button class="main-btn danger-btn-outline m-2" (click)="clear()">
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- end row -->
+      </div>
+      <!-- ========== form-layout-wrapper end ========== -->
+    </div>
+    <!-- end container -->
+  </section>
+  <!-- ========== tab components end ========== -->

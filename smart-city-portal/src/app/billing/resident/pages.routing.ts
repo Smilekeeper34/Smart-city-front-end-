@@ -7,6 +7,7 @@ import { ResidentBillInvoiceComponent } from './resident-bill-invoice/resident-b
 import { ResidentBillPaymentsComponent } from './resident-bill-payments/resident-bill-payments.component';
 import { ResidentConfigurationsComponent } from './resident-configurations/resident-configurations.component';
 import { AdminCreateComponent } from '../admin/admin-create/admin-create.component';
+import { CreateCustomerComponent } from '../operator/create-customer/create-customer.component';
 
 const routes: Routes = [
     {
@@ -41,6 +42,10 @@ const routes: Routes = [
             {
                 path: 'createadmin',
                 component: AdminCreateComponent,
+              },
+            {
+                path: 'createcustomer',
+                component: CreateCustomerComponent,
               },
         ]
     },

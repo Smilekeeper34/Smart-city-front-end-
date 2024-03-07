@@ -1,146 +1,114 @@
 <div class="app">
-	<div class="app-body">
-        <div class="app-body-navigation">
-		</div>
-		
-		<div class="app-body-main-content">
-			<section class="service-section">
-				<h2>Service</h2>
-				<div class="service-section-header">
-					<div class="search-field">
-						<i class="ph-magnifying-glass"></i>
-						<input type="text" placeholder="Account number">
-					</div>
-					<div class="dropdown-field">
-						<select>
-							<option>Home</option>
-							<option>Work</option>
-						</select>
-						<i class="ph-caret-down"></i>
-					</div>
-					<button class="flat-button">
-						Search
-					</button>
-				</div>
-				<div class="mobile-only">
-					<button class="flat-button">
-						Toggle search
-					</button>
-				</div>
-				<div class="tiles">
-					<article class="tile">
-						<div class="tile-header">
-							<i class="ph-lightning-light"></i>
-							<h3>
-								<span>Water </span>
-								<span></span>
-							</h3>
-						</div>
-						<a href="#">
-							<span>Go to service</span>
-							<span class="icon-button">
-								<i class="bi bi-arrow-down-right-circle"></i>
-							</span>
-						</a>
-					</article>
-					<article class="tile">
-						<div class="tile-header">
-							<i class="ph-fire-simple-light"></i>
-							<h3>
-								<span>City Tarrif and Rates</span>
-								<span></span>
-							</h3>
-						</div>
-						<a href="#">
-							<span>Go to service</span>
-							<span class="icon-button">
-								<i class="bi bi-arrow-down-right-circle"></i>
-							</span>
-						</a>
-					</article>
-					
-				</div>
-				<div class="service-section-footer">
-					<p>Services are paid according to the current state of the currency and tariff.</p>
-				</div>
-			</section>
-			<section class="transfer-section">
-				<div class="transfer-section-header">
-					<h2>Latest transfers</h2>
-					
-				</div>
-				<div class="transfers">
-					<div class="transfer">
-						<div class="transfer-logo">
-							<img src="https://assets.codepen.io/285131/apple.svg" />
-						</div>
-						<dl class="transfer-details">
-							<div>
-								<dt>Apple Inc.</dt>
-								<dd>Apple ID Payment</dd>
-							</div>
-							<div>
-								<dt>4012</dt>
-								<dd>Last four digits</dd>
-							</div>
-							<div>
-								<dt>28 Oct. 21</dt>
-								<dd>Date payment</dd>
-							</div>
-						</dl>
-						<div class="transfer-number">
-							- $ 550
-						</div>
-					</div>
-					<div class="transfer">
-						<div class="transfer-logo">
-							<img src="https://assets.codepen.io/285131/pinterest.svg" />
-						</div>
-						<dl class="transfer-details">
-							<div>
-								<dt>Pinterest</dt>
-								<dd>2 year subscription</dd>
-							</div>
-							<div>
-								<dt>5214</dt>
-								<dd>Last four digits</dd>
-							</div>
-							<div>
-								<dt>26 Oct. 21</dt>
-								<dd>Date payment</dd>
-							</div>
-						</dl>
-						<div class="transfer-number">
-							- $ 120
-						</div>
-					</div>
-					<div class="transfer">
-						<div class="transfer-logo">
-							<img src="https://assets.codepen.io/285131/warner-bros.svg" />
-						</div>
-						<dl class="transfer-details">
-							<div>
-								<dt>Warner Bros.</dt>
-								<dd>Cinema</dd>
-							</div>
-							<div>
-								<dt>2228</dt>
-								<dd>Last four digits</dd>
-							</div>
-							<div>
-								<dt>22 Oct. 21</dt>
-								<dd>Date payment</dd>
-							</div>
-						</dl>
-						<div class="transfer-number">
-							- $ 70
-						</div>
-					</div>
-				</div>
-			</section>
-		</div>
-		<div class="app-body-sidebar">
-			<!-- <section class="payment-section">
+  <div class="app-body">
+    <div class="app-body-navigation"></div>
+
+    <section class="table-components">
+      <div class="container-fluid">
+        <!-- ========== tables-wrapper start ========== -->
+        <div class="tables-wrapper">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="card-style mb-30">
+                <h6 class="mb-10">Billing Data Table</h6>
+                <div
+                  class="d-flex flex-wrap justify-content-between align-items-center py-3"
+                >
+                  <div class="left">
+                    <p>
+                      Show <span>{{ billings.length }}</span> entries
+                    </p>
+                  </div>
+                  <div class="right">
+                    <div class="table-search d-flex">
+                      <form action="#">
+                        <input type="text" placeholder="Search..." />
+                        <button><i class="lni lni-search-alt"></i></button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <div class="table-wrapper table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th class="billing-id" style="width: 10%">
+                          <h6>Billing ID</h6>
+                        </th>
+                        <th class="customer-id" style="width: 15%">
+                          <h6>Customer ID</h6>
+                        </th>
+                        <th class="billing-date" style="width: 15%">
+                          <h6>Billing Date</h6>
+                        </th>
+                        <th class="invoice-number" style="width: 15%">
+                          <h6>Invoice Number</h6>
+                        </th>
+                        <th class="payment-status" style="width: 15%">
+                          <h6>Payment Status</h6>
+                        </th>
+                        <th class="payment-method" style="width: 15%">
+                          <h6>Payment Method</h6>
+                        </th>
+                        <th class="action" style="width: 15%">
+                          <h6>Action</h6>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let billing of billings">
+                        <td>{{ billing.billID }}</td>
+                        <td>{{ billing.customerID }}</td>
+                        <td>{{ billing.billingDate | date : "dd MMM. yy" }}</td>
+                        <td>{{ billing.invoiceNumber }}</td>
+                        <td>
+                          <span
+                            [ngClass]="{
+								'status-btn': true,
+                              ' success-btn':
+                                billing.paymentStatus === 'Paid',
+                              ' warning-btn':
+                                billing.paymentStatus === 'Pending',
+                              'unpaid-row': billing.paymentStatus === 'Unpaid'
+                            }"
+                            >{{ billing.paymentStatus }}</span
+                          >
+                        </td>
+                        <td>{{ billing.paymentMethod }}</td>
+                        <td>
+                          <div class="action">
+                            <button class="text-danger">
+                              <i class="lni lni-trash-can"></i>
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div
+                  class="pt-10 d-flex flex-wrap gap-3 justify-content-between"
+                >
+                  <div class="left">
+                    <p class="text-sm text-gray">
+                      Showing {{ billings.length }}/30 entries
+                    </p>
+                  </div>
+                  <app-pagination
+                    [currentPage]="currentPage"
+                    [totalPages]="totalPages"
+                    (pageChange)="onPageChange($event)"
+                  ></app-pagination>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ========== tables-wrapper end ========== -->
+      </div>
+    </section>
+
+    <div class="app-body-sidebar">
+      <!-- <section class="payment-section">
 				<h2>New Payment</h2>
 				<div class="payment-section-header">
 					<p>Choose a card to transfer money</p>
@@ -235,6 +203,6 @@
 					</button>
 				</div>
 			</section> -->
-		</div>
-	</div>
+    </div>
+  </div>
 </div>
