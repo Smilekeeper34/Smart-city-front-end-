@@ -26,6 +26,7 @@ import { AdminCreateComponent } from './billing/admin/admin-create/admin-create.
 import { CreateTarriffsComponent } from './billing/admin/create-tarriffs/create-tarriffs.component';
 import { PaginationComponent } from './common/pagination/pagination.component';
 import { CreateCustomerComponent } from './billing/operator/create-customer/create-customer.component';
+import { AllCustomersComponent } from './billing/admin/all-customers/all-customers.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { CreateCustomerComponent } from './billing/operator/create-customer/crea
     AdminCreateComponent,
     CreateTarriffsComponent,
     PaginationComponent,
-    CreateCustomerComponent
+    CreateCustomerComponent,
+    AllCustomersComponent
   ],
   imports: [
     BrowserModule,

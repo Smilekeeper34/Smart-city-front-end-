@@ -8,6 +8,7 @@ import { ResidentBillPaymentsComponent } from './resident-bill-payments/resident
 import { ResidentConfigurationsComponent } from './resident-configurations/resident-configurations.component';
 import { AdminCreateComponent } from '../admin/admin-create/admin-create.component';
 import { CreateCustomerComponent } from '../operator/create-customer/create-customer.component';
+import { AllCustomersComponent } from '../admin/all-customers/all-customers.component';
 
 const routes: Routes = [
     {
@@ -46,6 +47,10 @@ const routes: Routes = [
             {
                 path: 'createcustomer',
                 component: CreateCustomerComponent,
+              },
+            {
+                path: 'customers',
+                component:AllCustomersComponent,
               },
         ]
     },

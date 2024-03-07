@@ -44,6 +44,12 @@ export const sideData = [
     role: ['SUPERADMIN', 'SALESAGENT', 'RESIDENT'],
   },
   {
+    link: '/customers',
+    icon: 'bi bi-people',
+    name: 'All Customers',
+    role: ['SUPERADMIN', 'SALESAGENT', 'RESIDENT'],
+  },
+  {
     link: '/profile',
     icon: 'bi bi-person-circle',
     name: 'Profile',

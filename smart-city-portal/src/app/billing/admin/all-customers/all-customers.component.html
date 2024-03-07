@@ -1,0 +1,91 @@
+<div class="app">
+    <div class="app-body">
+      <div class="app-body-navigation"></div>
+  
+      <!-- customer-list.component.html -->
+<section class="table-components">
+    <div class="container-fluid">
+      <div class="tables-wrapper">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card-style mb-30">
+              <h6 class="mb-10">Customer Data Table</h6>
+              <div class="d-flex flex-wrap justify-content-between align-items-center py-3">
+                <div class="left">
+                  <p>Show <span>{{ customers.length }}</span> entries</p>
+                </div>
+                <div class="right">
+                  <div class="table-search d-flex">
+                    <form action="#">
+                      <input type="text" placeholder="Search..." />
+                      <button><i class="lni lni-search-alt"></i></button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="table-wrapper table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th class="customer-id" style="width: 15%">
+                        <h6>Customer ID</h6>
+                      </th>
+                      <th class="first-name" style="width: 15%">
+                        <h6>First Name</h6>
+                      </th>
+                      <th class="last-name" style="width: 15%">
+                        <h6>Last Name</h6>
+                      </th>
+                      <th class="phone-number" style="width: 15%">
+                        <h6>Phone Number</h6>
+                      </th>
+                      <th class="address" style="width: 15%">
+                        <h6>Address</h6>
+                      </th>
+                      <th class="suburb" style="width: 15%">
+                        <h6>Suburb Name</h6>
+                      </th>
+                      <th class="city" style="width: 15%">
+                        <h6>City</h6>
+                      </th>
+                      <th class="action" style="width: 15%">
+                        <h6>Action</h6>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let customer of customers">
+                      <td>{{ customer.customer_id_string }}</td>
+                      <td>{{ customer.firstName }}</td>
+                      <td>{{ customer.lastName }}</td>
+                      <td>{{ customer.contactNumber }}</td>
+                      <td>{{ customer.streetName }}</td>
+                      <td>{{ customer.suburbName }}</td>
+                      <td>{{ customer.city }}</td>
+                      <td>
+                        <div class="action">
+                          <button class="text-danger" (click)="deleteCustomer(customer.customerId)">
+                            <i class="lni lni-trash-can"></i>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="pt-10 d-flex flex-wrap gap-3 justify-content-between">
+                <div class="left">
+                  <p class="text-sm text-gray">
+                    Showing {{ customers.length }}/30 entries
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+    </div>
+  </div>

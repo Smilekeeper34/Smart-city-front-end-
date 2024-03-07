@@ -1,4 +1,4 @@
-
+// customer.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -23,6 +23,27 @@ export class CustomerService {
         },
         (error) => {
           Swal.fire('Error', 'Error creating customer', 'error');
+          observer.error(error);
+        }
+      );
+    });
+  }
+
+  getAllCustomers(): Observable<any> {
+    const url = `${this.apiUrl}/getAll`;
+    return this.http.get(url);
+  }
+  deleteCustomer(customerId: string): Observable<any> {
+    const url = `${this.apiUrl}/${customerId}`;
+    return new Observable((observer) => {
+      this.http.delete(url).subscribe(
+        (response) => {
+          Swal.fire('Success', 'Customer deleted successfully!', 'success');
+          observer.next(response);
+          observer.complete();
+        },
+        (error) => {
+          Swal.fire('Error', 'Error deleting customer', 'error');
           observer.error(error);
         }
       );
