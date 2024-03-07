@@ -27,6 +27,7 @@ import { CreateTarriffsComponent } from './billing/admin/create-tarriffs/create-
 import { PaginationComponent } from './common/pagination/pagination.component';
 import { CreateCustomerComponent } from './billing/operator/create-customer/create-customer.component';
 import { AllCustomersComponent } from './billing/admin/all-customers/all-customers.component';
+import { LoaderComponent } from './common/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { AllCustomersComponent } from './billing/admin/all-customers/all-custome
     CreateTarriffsComponent,
     PaginationComponent,
     CreateCustomerComponent,
-    AllCustomersComponent
+    AllCustomersComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
