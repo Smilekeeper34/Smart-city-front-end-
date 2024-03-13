@@ -10,7 +10,6 @@ import { AppComponent } from './app.component';
 import { DashtestComponent } from './common/dashtest/dashtest.component';
 import { LoginComponent } from './auth/login/login.component';
 import { HeaderComponent } from './common/header/header.component';
-import { SignupComponent } from './auth/signup/signup.component';
 import { ResidentDashboardComponent } from './billing/resident/resident-dashboard/resident-dashboard.component';
 import { SidenavComponent } from './common/sidenav/sidenav.component';
 import { ResidentProfileComponent } from './billing/resident/resident-profile/resident-profile.component';
@@ -28,6 +27,9 @@ import { PaginationComponent } from './common/pagination/pagination.component';
 import { CreateCustomerComponent } from './billing/operator/create-customer/create-customer.component';
 import { AllCustomersComponent } from './billing/admin/all-customers/all-customers.component';
 import { LoaderComponent } from './common/loader/loader.component';
+import { TarriffTableComponent } from './billing/admin/tarriff-table/tarriff-table.component';
+import { AuthGuard } from './services/auth.guard';
+import { FinishRegComponent } from './auth/finish-reg/finish-reg.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,6 @@ import { LoaderComponent } from './common/loader/loader.component';
     DashtestComponent,
     LoginComponent,
     HeaderComponent,
-    SignupComponent,
     ResidentDashboardComponent,
     SidenavComponent,
     ResidentProfileComponent,
@@ -52,7 +53,9 @@ import { LoaderComponent } from './common/loader/loader.component';
     PaginationComponent,
     CreateCustomerComponent,
     AllCustomersComponent,
-    LoaderComponent
+    LoaderComponent,
+    TarriffTableComponent,
+    FinishRegComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +65,7 @@ import { LoaderComponent } from './common/loader/loader.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,1 +1,81 @@
-<p>create-tarriffs works!</p>
+<!-- ========== tab components start ========== -->
+<section class="tab-components">
+  <div class="container-fluid">
+    <!-- ========== title-wrapper start ========== -->
+    <div class="title-wrapper pt-30">
+      <div class="row align-items-center">
+        <div class="col-lg-5 col-md-6">
+          <div class="title">
+            <h2>Create Tarriff / Rate</h2>
+          </div>
+        </div>
+        <!-- end col -->
+      </div>
+
+      <!-- end row -->
+    </div>
+    <!-- ========== title-wrapper end ========== -->
+
+    <!-- ========== form-layout-wrapper start ========== -->
+    <div class="form-layout-wrapper">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="card-style mb-30">
+            <h6 class="mb-25">Tarriff Details</h6>
+            <form [formGroup]="tarriffForm ">
+              <div class="row">
+                <div class="col-6">
+                  <div class="input-style-1">
+                    <label>Description</label>
+                    <input
+                      type="text"
+                      name="description"
+                      placeholder="Description"
+                      required
+                      formControlName="description"
+                    />
+                  </div>
+                </div>
+                <!-- end col -->
+                <div class="col-6">
+                  <div class="input-style-1">
+                    <label>Rate</label>
+                    <input
+                      type="text"
+                      name="rate"
+                      placeholder="Rate"
+                      required
+                      formControlName="rate"
+                    />
+                  </div>
+                </div>
+                <!-- end col -->
+              </div>
+              <!-- end row -->
+            </form>
+          </div>
+          <!-- end card -->
+        </div>
+        <!-- end col -->
+        <div class="col-lg-3">
+          <div class="button-group d-flex justify-content-center flex-wrap">
+            <button
+              class="main-btn primary-btn btn-hover m-2"
+              type="submit"
+              (click)="onSubmit()"
+            >
+              Save Details
+            </button>
+            <button class="main-btn danger-btn-outline m-2" (click)="clear()">
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- end row -->
+    </div>
+    <!-- ========== form-layout-wrapper end ========== -->
+  </div>
+  <!-- end container -->
+</section>
+<!-- ========== tab components end ========== -->
