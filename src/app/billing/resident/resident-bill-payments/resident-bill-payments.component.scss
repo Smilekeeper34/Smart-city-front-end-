@@ -134,3 +134,40 @@ input.card {
         font-size: 10px
     }
 }
+/* Existing Styles */
+.img-btn{
+    margin-bottom: 4%;
+}
+
+.img-btn img{
+   width: 100px;
+   height:50px;
+} 
+
+.img-btn > input{
+    display:none;
+}
+
+.img-btn > img{
+    cursor:pointer;
+    border:2px solid transparent;
+}
+
+.img-btn > input:checked + img{
+    border-color: rgb(1, 84, 139); 
+    border-radius:5px; 
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover Effects and Beautification */
+.img-btn img:hover {
+    opacity: 0.8;  /* Slightly reduce opacity on hover */
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    transform: scale(1.05); /* Slightly increase size */
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+  
+  
+  
+  
