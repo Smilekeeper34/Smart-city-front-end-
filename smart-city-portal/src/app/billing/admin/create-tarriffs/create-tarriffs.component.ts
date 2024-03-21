@@ -20,7 +20,8 @@ export class CreateTarriffsComponent implements OnInit{
       this.tarriffForm = this.formBuilder.group({
         description: ['', Validators.required],
         rate: ['', Validators.required],
-        
+        locationID:[1],
+        categoryID:[1],
         
       });
     }
@@ -43,6 +44,6 @@ export class CreateTarriffsComponent implements OnInit{
     }
   }
   clear():void{
-
+    this.tarriffForm.reset();
   }
 }

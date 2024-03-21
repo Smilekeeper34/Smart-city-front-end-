@@ -1,0 +1,31 @@
+export interface Customer {
+  customer_id_string: string ;
+  customerId: number;
+  firstName: string;
+  lastName: string;
+  streetName: string;
+  suburbName: string;
+  city: string;
+  state: string;
+  zipCode: number;
+  country: string;
+  accountType: string;
+  contactNumber: number;
+  email: string;
+  dateOfBirth: string;
+  gender: string;
+  nationalID: string;
+  occupation: string;
+  emergencyContactName: string;
+  emergencyContactNumber: number;
+  preferredCommunicationMethod: string;
+  residentialType: string;
+  numberOfOccupants: number;
+  monthlyIncome: number;
+  billingPreference: string;
+  waterUsageAlert: boolean;
+  userEngagementOptIn: boolean;
+  lastBillingDate: string;
+  lastPaymentDate: string;
+  userFeedbackOptIn: boolean;
+}

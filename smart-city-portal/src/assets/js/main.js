@@ -18,10 +18,11 @@
     }
   })
 
+
   /* ========= sidebar toggle ======== */
   const sidebarNavWrapper = document.querySelector('.sidebar-nav-wrapper')
   const mainWrapper = document.querySelector('.main-wrapper')
-  const menuToggleButton = document.querySelector('#menu-toggle')
+  const menuToggleButton = document.querySelector('#menuToggleButton');
   const menuToggleButtonIcon = document.querySelector('#menu-toggle i')
   const overlay = document.querySelector('.overlay')
 
@@ -45,6 +46,7 @@
       }
     }
   })
+  
   overlay.addEventListener('click', () => {
     sidebarNavWrapper.classList.remove('active')
     overlay.classList.remove('active')

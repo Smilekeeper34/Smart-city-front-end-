@@ -1,8 +1,26 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { DataShareService } from 'src/app/services/DataShareService.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { RegistrationService } from 'src/app/services/registration.service';
+import Swal from 'sweetalert2';
+
+interface RegistrationFormData {
+  firstName:string;
+  lastName:string;
+  contactNumber: string;
+  email: string;
+  password: string;
+}
+
+interface RegistrationResponse {
+  success: boolean;
+  customerID?: number; 
+  token?: string;
+  error?: string; // For error messages from the backend
+}
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -18,7 +36,8 @@ export class LoginComponent {
     private fb: FormBuilder,
     private authService: AuthService,
     private router: Router,
-    private registrationService: RegistrationService
+    private registrationService: RegistrationService,
+    private dataShareService : DataShareService
   ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -36,62 +55,86 @@ export class LoginComponent {
   onSubmit() {
     if (this.loginForm.valid) {
       const formData = this.loginForm.value;
-
+  
       this.authService.login(formData).subscribe(
-        (response) => {
-          console.log('Login successful', response);
-          this.loginForm.reset();
-          this.router.navigate(['/dashboard']);
-          this.errorMessage = '';
+        response => {
+          Swal.fire({
+            icon: 'success',
+            title: 'Login Successful',
+            text: 'Welcome!', 
+            confirmButtonText: 'Proceed to Dashboard'
+          }).then(() => {
+            console.log('Login successful', response); 
+            this.loginForm.reset();
+            this.router.navigate(['/dashboard']);
+            this.errorMessage = '';
+          });
         },
-        (error) => {
-          console.error('Login failed', error);
-          // Handle login failure
-          // Set error message based on the server response
+        error => {
+          let errorMessage = 'An error occurred during login'; // Default error
           if (error.status === 401) {
-            this.errorMessage = 'Incorrect username or password';
+            errorMessage = 'Incorrect username or password';
           } else if (error.status === 404) {
-            this.errorMessage = 'User not found';
-          } else {
-            this.errorMessage = 'An error occurred during login';
-          }
+            errorMessage = 'User not found';
+          } 
+          Swal.fire({
+            icon: 'error',
+            title: 'Login Failed',
+            text: errorMessage 
+          });
         }
       );
     }
   }
+  
 
   Register() {
     if (this.registrationForm.valid) {
-      const formData = this.registrationForm.value;
+      const formData: RegistrationFormData = this.registrationForm.value;
 
       this.registrationService.register(formData).subscribe(
-        response => {
-          console.log('Registration successful', response);
-          console.log(formData);
-            // Clear the form
-        this.registrationForm.reset();
-        alert('Registration successful!');
-        this.showSignInForm = true;
-          // Handle successful registration, e.g., redirect to another page
+        (response: RegistrationResponse) => {
+          if (response.success) {
+            const customerId = response.customerID; 
+
+            Swal.fire({
+              icon: 'success',
+              title: 'Registration Successful',
+              text: 'Welcome! Please proceed to finish your registration.', 
+            }).then(() => {              
+              this.registrationForm.reset();
+              this.showSignInForm = true; 
+              console.log('customerID: ',customerId);
+              this.dataShareService.updateCustomerId(customerId);
+              this.router.navigate(['/finishReg']); // Redirect with ID
+            });
+
+          } else {
+            // Registration Error from Backend
+            let errorMessage = response.error || 'An unknown error occurred during registration'; // Use error from backend if available
+            Swal.fire({
+              icon: 'error',
+              title: 'Registration Failed',
+              text: errorMessage
+            });
+          }
         },
         error => {
-          console.error('Registration failed', error);
-          // Handle registration failure
+          let errorMessage = ''; 
           if (error.status === 400) {
-            // Handle specific HTTP 400 Bad Request errors
-            console.error('Bad Request:', error.error);
-            // You might want to display error messages to the user
+            errorMessage = 'Bad Request. Please review your form information.';
           } else if (error.status === 401) {
-            // Handle specific HTTP 401 Unauthorized errors
-            console.error('Unauthorized:', error.error);
-            // You might want to redirect to a login page
-          } else {
-            // Handle other types of errors
-            console.error('Unexpected error:', error);
-            // You might want to display a generic error message to the user
+            errorMessage = 'Unauthorized. This might mean a username is already taken.';
           }
+
+          Swal.fire({
+            icon: 'error',
+            title: 'Registration Failed',
+            text: errorMessage
+          })
         }
       );
     }
   }
+  
 }

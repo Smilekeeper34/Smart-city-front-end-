@@ -2,7 +2,7 @@
 
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, map ,catchError,throwError} from 'rxjs';
+import { Observable, map ,catchError,throwError, tap, of} from 'rxjs';
 
 import { Router } from '@angular/router';
 import { jwtDecode } from 'jwt-decode';
@@ -26,7 +26,7 @@ export class AuthService {
 
   login(formData: any): Observable<any> {
     return this.http.post(this.apiUrl, formData).pipe(
-      map((response: any) => {
+      tap((response: any) => {
         const token = response.token;
         const customer = response.customer;
 
@@ -82,21 +82,28 @@ export class AuthService {
   }
 
   signOut() {
-    // Clear the stored token and user details
-    localStorage.removeItem('token');
-    this.userService.setUser(null); // Set user to null 
+   
+    localStorage.clear();
+    this.userService.setUser(null); 
   }
   getDecodedToken() {
     const token = localStorage.getItem('token');
-    const decoded: any = jwtDecode(token);
-    return decoded;
-  }
-  isLoggedIn(): boolean {
-    const user = localStorage.getItem('token');
-    if (user && !this.isTokenExpired()) {
-      return true;
+    if (!token) {
+      throw new Error('Token not found in local storage');
     }
-    return false;
+  
+    try {
+      const decoded: any = jwtDecode(token);
+      return decoded;
+    } catch (error) {
+      throw new Error('Error decoding token: ' + error.message);
+    }  
+  }
+  
+  isLoggedIn(): Observable<boolean> {
+    const user = localStorage.getItem('token');
+    const isLoggedIn = user && !this.isTokenExpired(); 
+    return of(isLoggedIn); 
   }
 
   isTokenExpired(): boolean {

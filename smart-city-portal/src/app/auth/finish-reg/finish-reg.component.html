@@ -1,1 +1,223 @@
-<p>finish-reg works!</p>
+<!-- ========== tab components start  ========== -->
+<section class="tab-components" *ngIf="customer">
+  <div class="container-fluid">
+    <!-- ========== title-wrapper start ========== -->
+    <div class="title-wrapper pt-30">
+      <div class="row align-items-center">
+        <div class="col-lg-5 col-md-6">
+          <div class="title">
+            <h2>FINISH REGISTRATION</h2>
+          </div>
+          <div class="row">
+            <div class="col-10">
+              <p>Name: {{ customer.firstName }} {{ customer.lastName }}</p>
+              <p>Email: {{ customer.email }}</p>
+              <p>{{ customer.customer_id_string }}</p>
+              
+            </div>
+          </div>
+        </div>
+        <!-- end col -->
+      </div>
+
+      <!-- end row -->
+    </div>
+    <!-- ========== title-wrapper end ========== -->
+
+    <!-- ========== form-layout-wrapper start ========== -->
+    <div class="form-layout-wrapper">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="card-style mb-30">
+            <h6 class="mb-25">User Details</h6>
+            <form [formGroup]="customerForm">
+              <div class="row">
+                <div class="col-6">
+                  <div class="input-style-1">
+                    <label>Street Name</label>
+                    <input
+                      type="text"
+                      name="streetName"
+                      placeholder="Street Name"
+                      required
+                      formControlName="streetName"
+                    />
+                  </div>
+                </div>
+                <!-- end col -->
+                <div class="col-6">
+                  <div class="input-style-1">
+                    <label>Suburb Name</label>
+                    <input
+                      type="text"
+                      name="suburbName"
+                      placeholder="Suburb Name"
+                      formControlName="suburbName"
+                    />
+                  </div>
+                </div>
+                <!-- end col -->
+                  <div class="col-6">
+                    <div class="input-style-1">
+                      <label>Account Type</label>
+                      <input
+                        type="text"
+                        name="accountType"
+                        placeholder="Account Type"
+                        formControlName="accountType"
+                      />
+                    </div>
+                  </div>
+                  <!-- end col -->
+                  <div class="col-6">
+                    <div class="input-style-1">
+                      <label>Date of Birth</label>
+                      <input
+                        type="date"
+                        name="dateOfBirth"
+                        placeholder="Date of Birth"
+                        formControlName="dateOfBirth"
+                      />
+                    </div>
+                  </div>
+                  <!-- end col -->
+                  <div class="col-6">
+                    <div class="input-style-1">
+                      <label>Gender</label>
+                      <input
+                        type="text"
+                        name="gender"
+                        placeholder="Gender"
+                        formControlName="gender"
+                      />
+                    </div>
+                  </div>
+                  <!-- end col -->
+                  <div class="col-6">
+                    <div class="input-style-1">
+                      <label>National ID</label>
+                      <input
+                        type="text"
+                        name="nationalID"
+                        placeholder="National ID"
+                        formControlName="nationalID"
+                      />
+                    </div>
+                  </div>
+                  <!-- end col -->
+                  <div class="col-6">
+                    <div class="input-style-1">
+                      <label>Occupation</label>
+                      <input
+                        type="text"
+                        name="occupation"
+                        placeholder="Occupation"
+                        formControlName="occupation"
+                      />
+                    </div>
+                  </div>
+                  <!-- end col -->
+                  <div class="col-6">
+                    <div class="input-style-1">
+                      <label>Emergency Contact Name</label>
+                      <input
+                        type="text"
+                        name="emergencyContactName"
+                        placeholder="Emergency Contact Name"
+                        formControlName="emergencyContactName"
+                      />
+                    </div>
+                  </div>
+                  <!-- end col -->
+                  <div class="col-6">
+                    <div class="input-style-1">
+                      <label>Emergency Contact Number</label>
+                      <input
+                        type="text"
+                        name="emergencyContactNumber"
+                        placeholder="Emergency Contact Number"
+                        formControlName="emergencyContactNumber"
+                        pattern="\d+"
+                      />
+                    </div>
+                  </div>
+                  <!-- end col -->
+                  <div class="col-6">
+                    <div class="input-style-1">
+                      <label>Preferred Communication Method</label>
+                      <input
+                        type="text"
+                        name="preferredCommunicationMethod"
+                        placeholder="Preferred Communication Method"
+                        formControlName="preferredCommunicationMethod"
+                      />
+                    </div>
+                  </div>
+                  <!-- end col -->
+                  <div class="col-6">
+                    <div class="input-style-1">
+                      <label>Residential Type</label>
+                      <input
+                        type="text"
+                        name="residentialType"
+                        placeholder="Residential Type"
+                        formControlName="residentialType"
+                      />
+                    </div>
+                  </div>
+                  <!-- end col -->
+                  <div class="col-6">
+                    <div class="input-style-1">
+                      <label>Number of Occupants</label>
+                      <input
+                        type="number"
+                        name="numberOfOccupants"
+                        placeholder="Number of Occupants"
+                        formControlName="numberOfOccupants"
+                        min="1"
+                      />
+                    </div>
+                  </div>
+                  <!-- end col -->
+                  <div class="col-6">
+                    <div class="input-style-1">
+                      <label>Billing Preference</label>
+                      <input
+                        type="text"
+                        name="billingPreference"
+                        placeholder="Billing Preference"
+                        formControlName="billingPreference"
+                      />
+                    </div>
+                  </div>
+                  <!-- end col -->
+              </div>
+              <!-- end row -->
+            </form>
+          </div>
+          <!-- end card -->
+        </div>
+        <!-- end col -->
+        <div class="col-lg-3">
+          <div class="button-group d-flex justify-content-center flex-wrap">
+            <button
+              class="main-btn primary-btn btn-hover m-2"
+              type="submit"
+              (click)="saveInformation()"
+            >
+              Save Details
+            </button>
+            <button class="main-btn danger-btn-outline m-2" (click)="clear()">
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- end row -->
+    </div>
+    <!-- ========== form-layout-wrapper end ========== -->
+  </div>
+  <!-- end container -->
+</section>
+<!-- ========== tab components end ========== -->
+<div *ngIf="!customer">Loading customer details...</div>

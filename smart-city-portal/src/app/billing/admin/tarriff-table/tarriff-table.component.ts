@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { tariffRateService } from 'src/app/services/tarriffRate.service';
+import Swal from 'sweetalert2';
 
 interface Tariff {
   tariffID: number;
@@ -36,11 +37,32 @@ export class TarriffTableComponent implements OnInit {
   }
 
   deleteTariff(tariffID: number): void {
-    this.tariffservice.deleteTariff(tariffID).subscribe(
-      (response) => {
-        this.getAllTariffs();
-      },
-      (error) => {}
-    );
+    event.preventDefault(); // Prevent default link/button behavior
+
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+          this.tariffservice.deleteTariff(tariffID).subscribe(
+            (response) => {
+              this.getAllTariffs();
+            },
+            (error) => {}
+          );
+
+            Swal.fire(
+                'Deleted!',
+                'Your item has been deleted.',
+                'success'
+            )
+        }
+    });
+    
   }
 }

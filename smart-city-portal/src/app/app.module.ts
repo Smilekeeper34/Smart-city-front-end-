@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -30,6 +30,9 @@ import { LoaderComponent } from './common/loader/loader.component';
 import { TarriffTableComponent } from './billing/admin/tarriff-table/tarriff-table.component';
 import { AuthGuard } from './services/auth.guard';
 import { FinishRegComponent } from './auth/finish-reg/finish-reg.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { StripePaymentComponent } from './billing/resident/stripe-payment/stripe-payment.component';
+import { PaymentMethodsComponent } from './common/payment-methods/payment-methods.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +58,9 @@ import { FinishRegComponent } from './auth/finish-reg/finish-reg.component';
     AllCustomersComponent,
     LoaderComponent,
     TarriffTableComponent,
-    FinishRegComponent
+    FinishRegComponent,
+    StripePaymentComponent,
+    PaymentMethodsComponent
   ],
   imports: [
     BrowserModule,

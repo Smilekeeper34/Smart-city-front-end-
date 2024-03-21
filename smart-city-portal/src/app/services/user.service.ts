@@ -11,6 +11,15 @@ export class UserService {
   user$ = this.userSubject.asObservable();
 
   setUser(user: any) {
+    localStorage.setItem('user',JSON.stringify(user));
+
     this.userSubject.next(user);
+    this.getUser();
+  }
+  getUser(){
+    this.userSubject.next(JSON.parse(localStorage.getItem('user')));
+    this.userSubject.subscribe((res)=>{
+      console.log(res)
+    })
   }
 }

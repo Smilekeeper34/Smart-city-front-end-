@@ -22,6 +22,7 @@ export class ResidentProfileComponent {
   ) {}
   
   ngOnInit() {
+    this.userService.getUser();
     this.userService.user$.subscribe((user) => {
       this.user = user;
       console.log('User object:', this.user);
