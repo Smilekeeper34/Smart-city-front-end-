@@ -5,11 +5,7 @@
       <div class="title-wrapper pt-30">
         <div class="row align-items-center">
           <div class="col-md-6">
-            <!-- <div class="title d-flex align-items-center flex-wrap">
-              <h2 class="mr-40">Invoice</h2>
-              <a href="#0" class="main-btn primary-btn btn-hover btn-sm">
-                <i class="lni lni-plus mr-5"></i> New Invoice</a>
-            </div> -->
+            
           </div>
           <!-- end col -->
         </div>
@@ -80,34 +76,25 @@
                       </th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <!-- Loop through billings array and display each row -->
-                    <!-- <tr *ngFor="let billing of billings">
+                  <tbody *ngIf="invoiceData">
+                    <tr *ngFor="let detail of invoiceData?.billingDetails">
                       <td>
-                        <p class="text-sm">{{ billing.billID }}</p>
+                        <p class="text-sm">{{ detail.description }}</p>
                       </td>
-                  
                       <td>
-                        <p class="text-sm">{{ billing.customerID }}</p>
+                        <p class="text-sm">{{ detail.quantity }}</p>
                       </td>
-                  
                       <td>
-                        <p class="text-sm">{{ billing.billingDate | date: 'short' }}</p>
+                        <p class="text-sm">{{ detail.unitPrice }}</p>
                       </td>
-                  
                       <td>
-                        <p class="text-sm">{{ billing.paymentStatus }}</p>
+                        <p class="text-sm">{{ detail.totalAmount }}</p>
                       </td>
-                  
-                      <td>
-                        <p class="text-sm">{{ billing.totalAmount }}</p>
-                      </td>
-                    </tr> -->
+                    </tr>
                   </tbody>
-                  
-                  
                 </table>
               </div>
+  
               <div class="note-wrapper warning-alert py-4 px-sm-3 px-lg-5">
                 <div class="alert">
                   <h5 class="text-bold mb-15">Notes:</h5>

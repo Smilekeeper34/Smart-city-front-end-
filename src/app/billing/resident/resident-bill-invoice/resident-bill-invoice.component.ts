@@ -15,22 +15,18 @@ interface BillingDetail {
 })
 export class ResidentBillInvoiceComponent implements OnInit {
   billings: any[] = [];
+  invoiceData: any;
 
   constructor(private billingService: BillingService) {}
 
   ngOnInit(): void {
-    // this.loadBillingDetails();
+    this.loadInvoiceData('INV-1985');
   }
 
-  loadBillingDetails() {
-    this.billingService.getAllBillingDetails().subscribe(
-      (data) => {
-        this.billings = data.billings;
-        console.log('Billing Details:', this.billings);
-      },
-      (error) => {
-        console.error('Error fetching billing details:', error);
-      }
-    );
+  loadInvoiceData(invoiceNumber: string): void {
+    this.billingService.getInvoiceData(invoiceNumber).subscribe(data => {
+      console.log(data);
+      this.invoiceData = data;
+    });
   }
 }
