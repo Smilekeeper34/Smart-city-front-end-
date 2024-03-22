@@ -20,7 +20,7 @@ export class ResidentBillInvoiceComponent implements OnInit {
   constructor(private billingService: BillingService) {}
 
   ngOnInit(): void {
-    this.loadInvoiceData('INV-1985');
+    this.loadInvoiceData('INV-7078');
   }
 
   loadInvoiceData(invoiceNumber: string): void {

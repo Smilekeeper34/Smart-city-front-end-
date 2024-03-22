@@ -19,45 +19,18 @@
           <div class="col-12">
             <div class="invoice-card card-style mb-30">
               <div class="invoice-header">
-                <div class="invoice-for">
-                  <h2 class="mb-10">Invoice</h2>
-                  <p class="text-sm">
-                    
-                  </p>
-                </div>
-                <div class="invoice-logo">
-                  <img src="assets/images/logo/logo.svg" alt="" />
-                </div>
-                <div class="invoice-date">
-                  <p><span>Date Issued:</span> 20/02/2024</p>
-                  <p><span>Date Due:</span> 20/02/2028</p>
-                  <p><span>Order ID:</span> #5467</p>
+      
+                <div class="invoice-header"> 
+                  <div class="invoice-billing-info"> 
+                    <h2>Billing Information</h2>
+                    <p><span>Bill ID:</span> {{ invoiceData?.billingInvoice?.billing?.billID }}</p>
+                    <p><span>Customer ID:</span> {{ invoiceData?.billingInvoice?.billing?.customerId }}</p>           
+                    <p><span>Invoice Number:</span> {{ invoiceData?.billingInvoice?.billing?.invoiceNumber }}</p>
+                    <p><span>Billing Date:</span> {{ invoiceData?.billingInvoice?.billing?.billingDate | date:'short' }}</p>
+                    <p><span>Due Date:</span> {{ invoiceData?.billingInvoice?.billing?.dueDate | date:'short' }}</p>
+                    </div> 
                 </div>
               </div>
-              <!-- <div class="invoice-address">
-                <div class="address-item">
-                  <h5 class="text-bold">From</h5>
-                  <h1>John Doe</h1>
-                  <p class="text-sm">
-                    3891 Ranchview Dr. Richardson, California 62639
-                  </p>
-                  <p class="text-sm">
-                    <span class="text-medium">Email:</span>
-                    adminexample.com
-                  </p>
-                </div>
-                <div class="address-item">
-                  <h5 class="text-bold">To</h5>
-                  <h1>Santa Gosh</h1>
-                  <p class="text-sm">
-                    2972 Westheimer Rd. Santa Ana, Illinois 85486
-                  </p>
-                  <p class="text-sm">
-                    <span class="text-medium">Email:</span>
-                    adminexample.com
-                  </p>
-                </div>
-              </div> -->
               <div class="table-responsive">
                 <table class="invoice-table table">
                   <thead>
@@ -65,25 +38,21 @@
                       <th class="service">
                         <h6 class="text-sm text-medium">Service</h6>
                       </th>
-                      <th class="desc">
-                        <h6 class="text-sm text-medium">Descriptions</h6>
-                      </th>
+                     
                       <th class="qty">
-                        <h6 class="text-sm text-medium">Qty</h6>
+                        <h6 class="text-sm text-medium">Unit Rate Price</h6>
                       </th>
                       <th class="amount">
                         <h6 class="text-sm text-medium">Amounts</h6>
                       </th>
                     </tr>
                   </thead>
-                  <tbody *ngIf="invoiceData">
-                    <tr *ngFor="let detail of invoiceData?.billingDetails">
+                  <tbody *ngIf="invoiceData?.billingInvoice">
+                    <tr *ngFor="let detail of invoiceData?.billingInvoice?.billingDetails">
                       <td>
                         <p class="text-sm">{{ detail.description }}</p>
                       </td>
-                      <td>
-                        <p class="text-sm">{{ detail.quantity }}</p>
-                      </td>
+                      
                       <td>
                         <p class="text-sm">{{ detail.unitPrice }}</p>
                       </td>
@@ -117,11 +86,12 @@
                   </li>
                   <li class="m-2">
                     <a href="#0" class="main-btn primary-btn btn-hover">
-                      Send Invoice
+                      PAY BILL : $ {{ invoiceData?.billingInvoice?.billing?.totalBillAmount}}
                     </a>
                   </li>
                 </ul>
               </div>
+              
             </div>
             <!-- End Card -->
           </div>
