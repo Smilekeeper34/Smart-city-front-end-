@@ -31,16 +31,22 @@ export const sideData = [
     name: 'Configurations',
     role: ['SUPERADMIN', 'SALESAGENT', 'RESIDENT'],
   },
-  // {
-  //   link: '/createadmin',
-  //   icon: 'bi bi-people',
-  //   name: 'Create Admin',
-  //   role: ['SUPERADMIN', 'SALESAGENT', 'RESIDENT'],
-  // },
+  {
+    link: '/createadmin',
+    icon: 'bi bi-people',
+    name: 'Create Admin',
+    role: ['SUPERADMIN', 'SALESAGENT', 'RESIDENT'],
+  },
   {
     link: '/createtarriff',
     icon: 'bi bi-clipboard-data',
     name: 'Create Tarriff',
+    role: ['SUPERADMIN', 'SALESAGENT', 'RESIDENT'],
+  },
+  {
+    link: '/add-house',
+    icon: 'bi bi-house',
+    name: 'Add House',
     role: ['SUPERADMIN', 'SALESAGENT', 'RESIDENT'],
   },
   {
@@ -49,12 +55,12 @@ export const sideData = [
     name: 'Tarriff Table',
     role: ['SUPERADMIN', 'SALESAGENT', 'RESIDENT'],
   },
-  // {
-  //   link: '/createcustomer',
-  //   icon: 'bi bi-people',
-  //   name: 'Create Customer',
-  //   role: ['SUPERADMIN', 'SALESAGENT', 'RESIDENT'],
-  // },
+  {
+    link: '/createcustomer',
+    icon: 'bi bi-people',
+    name: 'Create Customer',
+    role: ['SUPERADMIN', 'SALESAGENT', 'RESIDENT'],
+  },
   {
     link: '/customers',
     icon: 'bi bi-people',
@@ -65,6 +71,12 @@ export const sideData = [
     link: '/profile',
     icon: 'bi bi-person-circle',
     name: 'Profile',
+    role: ['SUPERADMIN', 'SALESAGENT', 'RESIDENT'],
+  },
+  {
+    link: '/generate-invoice',
+    icon: 'bi bi-person-circle',
+    name: 'Generate Invoices',
     role: ['SUPERADMIN', 'SALESAGENT', 'RESIDENT'],
   },
 ];

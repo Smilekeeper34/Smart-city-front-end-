@@ -1,20 +1,10 @@
 <!-- ========== section start ========== -->
 <section>
     <div class="container-fluid">
-      <!-- ========== title-wrapper start ========== -->
-      <div class="title-wrapper pt-30">
-        <div class="row align-items-center">
-          <div class="col-md-6">
-            
-          </div>
-          <!-- end col -->
-        </div>
-        <!-- end row -->
-      </div>
-      <!-- ========== title-wrapper end ========== -->
+      
 
       <!-- Invoice Wrapper Start -->
-      <div class="invoice-wrapper">
+      <div class="invoice-wrapper pt-30">
         <div class="row">
           <div class="col-12">
             <div class="invoice-card card-style mb-30">
@@ -79,13 +69,13 @@
               </div>
               <div class="invoice-action">
                 <ul class="d-flex flex-wrap align-items-center justify-content-center">
-                  <li class="m-2">
-                    <a href="#0" class="main-btn primary-btn-outline btn-hover">
+                  <li class="m-2" aria-disabled="true">
+                    <a  class="main-btn primary-btn-outline btn-hover">
                       Download Invoice
                     </a>
                   </li>
                   <li class="m-2">
-                    <a href="#0" class="main-btn primary-btn btn-hover">
+                    <a routerLink="/payment" class="main-btn primary-btn btn-hover">
                       PAY BILL : $ {{ invoiceData?.billingInvoice?.billing?.totalBillAmount}}
                     </a>
                   </li>

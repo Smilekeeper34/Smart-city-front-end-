@@ -1,0 +1,109 @@
+<!-- ========== tab components start ========== -->
+<section class="tab-components">
+    <div class="container-fluid">
+      <!-- ========== title-wrapper start ========== -->
+      <div class="title-wrapper pt-30">
+        <div class="row align-items-center">
+          <div class="col-lg-5 col-md-6">
+            <div class="title">
+              <h2>Add House</h2>
+            </div>
+          </div>
+          <!-- end col -->
+        </div>
+  
+        <!-- end row -->
+      </div>
+      <!-- ========== title-wrapper end ========== -->
+  
+      <!-- ========== form-layout-wrapper start ========== -->
+      <div class="form-layout-wrapper">
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="card-style mb-30">
+              <h6 class="mb-25">House Details</h6>
+              <form [formGroup]="houseForm ">
+                <div class="row">
+                    <div class="col-8">
+                        <div class="input-style-1">
+                          <label>Account Number</label>
+                          <input
+                            type="text"
+                            name="description"
+                            placeholder="Account Number"
+                            required
+                            formControlName="customerId"
+                          />
+                        </div>
+                      </div>
+                      <!-- end col -->
+                </div>
+                <div class="row">
+                  <div class="col-6">
+                    <div class="input-style-1">
+                      <label>House Number</label>
+                      <input
+                        type="text"
+                        name="description"
+                        placeholder="House Number"
+                        required
+                        formControlName="houseNumber"
+                      />
+                    </div>
+                  </div>
+                  <!-- end col -->
+                  <div class="col-6">
+                    <div class="input-style-1">
+                      <label>Street Name</label>
+                      <input
+                        type="text"
+                        name="rate"
+                        placeholder="Street Name"
+                        required
+                        formControlName="streetName"
+                      />
+                    </div>
+                  </div>
+                  <!-- end col -->
+                  <div class="col-6">
+                    <div class="input-style-1">
+                      <label>Suburb</label>
+                      <input
+                        type="text"
+                        name="rate"
+                        placeholder="Suburb Name"
+                        required
+                        formControlName="suburb"
+                      />
+                    </div>
+                  </div>
+                  <!-- end col -->
+                </div>
+                <!-- end row -->
+              </form>
+            </div>
+            <!-- end card -->
+          </div>
+          <!-- end col -->
+          <div class="col-lg-3">
+            <div class="button-group d-flex justify-content-center flex-wrap">
+              <button
+                class="main-btn primary-btn btn-hover m-2"
+                type="submit"
+                (click)="onSubmit()"
+              >
+                Save Details
+              </button>
+              <button class="main-btn danger-btn-outline m-2" (click)="clear()">
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- end row -->
+      </div>
+      <!-- ========== form-layout-wrapper end ========== -->
+    </div>
+    <!-- end container -->
+  </section>
+  <!-- ========== tab components end ========== -->

@@ -3,10 +3,10 @@ import { BehaviorSubject } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class DataShareService {
-    private customerIdSubject = new BehaviorSubject<number | null>(null);
+    private customerIdSubject = new BehaviorSubject<any | null>(null);
     customerId$ = this.customerIdSubject.asObservable();
 
-    updateCustomerId(id: number) {
+    updateCustomerId(id: any) {
         this.customerIdSubject.next(id);
     }
 }

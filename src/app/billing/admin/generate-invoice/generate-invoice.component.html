@@ -1,0 +1,135 @@
+<section class="tab-components">
+  <div class="container-fluid">
+    <!-- ========== title-wrapper start ========== -->
+    <div class="title-wrapper pt-30">
+      <div class="row align-items-center">
+        <div class="col-lg-5 col-md-6">
+          <div class="title">
+            <h2>Generate Invoices</h2>
+          </div>
+        </div>
+        <!-- end col -->
+      </div>
+
+      <!-- end row -->
+      <div class="form-layout-wrapper">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="button-group d-flex justify-content-center flex-wrap">
+              <button
+                class="main-btn success-btn btn-hover m-2"
+                type="submit"
+                (click)="onSubmit()"
+              >
+                Generate Invoices
+              </button>
+              <button
+                class="main-btn primary-btn-outline m-2"
+                (click)="viewInvoices()"
+              >
+                View Invoices
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ========== title-wrapper end ========== -->
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card-style clients-table-card mb-30">
+          <div class="title d-flex justify-content-between align-items-center">
+            <h6 class="mb-10">Invoices</h6>
+          </div>
+          <div class="table-wrapper table-responsive">
+            <table class="table clients-table">
+              <thead>
+                <tr >
+                  <th>
+                    <h6>Invoice Number</h6>
+                  </th>
+                  <th>
+                    <h6>Bill ID</h6>
+                  </th>
+                  <th>
+                    <h6>House ID</h6>
+                  </th>
+                  <th>
+                    <h6>Customer ID</h6>
+                  </th>
+                  <th>
+                    <h6>Paymment Status</h6>
+                  </th>
+                  <th>
+                    <h6>Biling Date</h6>
+                  </th>
+                  <th>
+                    <h6>Biling Due Date</h6>
+                  </th>
+                  <th>
+                    <h6>Total Bill Amount</h6>
+                  </th>
+                  <th>
+                    <h6>Action</h6>
+                  </th>
+                </tr>
+                <!-- end table row-->
+              </thead>
+              <tbody>
+                <tr *ngFor="let billing of billings">
+                  <td>
+                    <p>{{ billing.invoiceNumber }}</p>
+                  </td>
+                  <td class="min-width">
+                    <p>{{ billing.billID }}</p>
+                  </td>
+                  <td class="min-width">
+                    <p>{{ billing.houseId }}</p>
+                  </td>
+                  <td class="min-width">
+                    <p>{{ billing.customerId }}</p>
+                  </td>
+                  <td>
+                    <span
+                            [ngClass]="{
+								'status-btn': true,
+                              ' success-btn':
+                                billing.paymentStatus === 'Paid',
+                              ' warning-btn':
+                                billing.paymentStatus === 'Pending',
+                              'unpaid-row': billing.paymentStatus === 'Unpaid'
+                            }"
+                            >{{ billing.paymentStatus }}</span
+                          >
+                  </td>
+                  <td class="min-width">
+                    <p>{{ billing.billingDate | date : "dd MMM. yy" }}</p>
+                  </td>
+                  <td class="min-width">
+                    <p>{{ billing.dueDate | date : "dd MMM. yy" }}</p>
+                  </td>
+                  <td class="min-width">
+                    <p>$ {{ billing.totalBillAmount }}</p>
+                  </td>
+                  <td>
+                    <div class="action">
+                      <button class="text-danger">
+                        <i class="lni lni-trash-can" (click)="deleteInvoice(billing.invoiceNumber)"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <!-- end table row -->
+              </tbody>
+            </table>
+            <!-- end table -->
+          </div>
+        </div>
+        <!-- end card -->
+      </div>
+      <!-- end col -->
+    </div>
+  </div>
+</section>

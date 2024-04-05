@@ -13,6 +13,8 @@ import { ResidentDashboardComponent } from './resident-dashboard/resident-dashbo
 import { ResidentBillPaymentsComponent } from './resident-bill-payments/resident-bill-payments.component';
 import { ResidentProfileComponent } from './resident-profile/resident-profile.component';
 import { TarriffTableComponent } from '../admin/tarriff-table/tarriff-table.component';
+import { GenerateInvoiceComponent } from '../admin/generate-invoice/generate-invoice.component';
+import { AddHouseComponent } from './add-house/add-house.component';
 
 const childRoutes: Routes = [
   { path: 'dashboard', component: ResidentDashboardComponent },
@@ -22,6 +24,8 @@ const childRoutes: Routes = [
   { path: 'payments', component: ResidentBillPaymentsComponent },
   { path: 'config', component: ResidentConfigurationsComponent },
   { path: 'createadmin', component: AdminCreateComponent },
+  { path: 'generate-invoice', component: GenerateInvoiceComponent },
+  { path: 'add-house', component: AddHouseComponent },
   { path: 'createcustomer', component: CreateCustomerComponent },
   { path: 'createtarriff', component: CreateTarriffsComponent },
   { path: 'tarriffTable', component: TarriffTableComponent },

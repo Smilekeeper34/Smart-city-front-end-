@@ -1,36 +1,37 @@
-<div class="hero">
-  <div class="hero__bg">
-    <picture>
-      <img src="assets/images/bg.jpg">
-    </picture>
-  </div>
-
-  <div class="hero__cnt">
-    <img src="assets/images/logo/logo.svg" alt="" viewBox="0 0 205 213">
-   
-    <h1>Smart City Portal</h1>
-    <div class="container">
-      <div class="row">
-        <div class="col-6">
-          <a routerLink="/login" class="button type--B">
-            <div class="button__line"></div>
-            <div class="button__line"></div>
-            <span class="button__text">SIGN UP</span>
-            <div class="button__drow1"></div>
-            <div class="button__drow2"></div>
-          </a>
-        </div>
-        <div class="col-6">
-          <a routerLink="/login" class="button type--B">
-            <div class="button__line"></div>
-            <div class="button__line"></div>
-            <span class="button__text">LOGIN</span>
-            <div class="button__drow1"></div>
-            <div class="button__drow2"></div>
-          </a>
-        </div>
-      </div>
-      
+<div
+  style="
+    height: 100vh;
+    background-image: url(assets/images/bg.jpg);
+    background-size: cover;
+    background-position: center;
+  "
+  class="position-relative w-100"
+>
+  <div
+    class="position-absolute text-white d-flex flex-column align-items-center justify-content-center"
+    style="
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      /* background-color: rgba(0, 0, 0, 0.6); */
+    "
+  >
+  
+    <h1 class="mb-4 mt-2 font-weight-bold text-center">
+      Smart City Portal
+    </h1>
+    <div class="text-center">
+      <!-- hover background-color: white; color: black; -->
+      <a
+        routerLink="/login"
+        id="filled"
+        class="btn px-5 py-3 text-white mt-3 mt-sm-0 mx-1"
+        style="border-radius: 30px; background-color: #5d81e5"
+        >Get Started</a
+      >
+  
     </div>
   </div>
 </div>
+

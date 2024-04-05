@@ -13,6 +13,9 @@ export class SidenavComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {}
+  isActive(link: string): boolean {
+    return this.router.isActive(link, false); // Note the 'false' argument
+  }
   changeRouter(link: any) {
     this.router.navigate([`${link}`]);
   }

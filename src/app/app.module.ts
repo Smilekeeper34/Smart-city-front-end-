@@ -33,6 +33,11 @@ import { FinishRegComponent } from './auth/finish-reg/finish-reg.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { StripePaymentComponent } from './billing/resident/stripe-payment/stripe-payment.component';
 import { PaymentMethodsComponent } from './common/payment-methods/payment-methods.component';
+import { PropertyRegistrationComponent } from './billing/resident/property-registration/property-registration.component';
+import { GenerateInvoiceComponent } from './billing/admin/generate-invoice/generate-invoice.component';
+import { ViewInvoicesComponent } from './billing/admin/view-invoices/view-invoices.component';
+import { AddHouseComponent } from './billing/resident/add-house/add-house.component';
+import { ViewHousesComponent } from './billing/resident/view-houses/view-houses.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +65,12 @@ import { PaymentMethodsComponent } from './common/payment-methods/payment-method
     TarriffTableComponent,
     FinishRegComponent,
     StripePaymentComponent,
-    PaymentMethodsComponent
+    PaymentMethodsComponent,
+    PropertyRegistrationComponent,
+    GenerateInvoiceComponent,
+    ViewInvoicesComponent,
+    AddHouseComponent,
+    ViewHousesComponent
   ],
   imports: [
     BrowserModule,

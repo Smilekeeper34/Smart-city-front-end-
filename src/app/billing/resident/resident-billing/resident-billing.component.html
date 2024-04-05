@@ -5,7 +5,7 @@
     <section class="table-components">
       <div class="container-fluid">
         <!-- ========== tables-wrapper start ========== -->
-        <div class="tables-wrapper">
+        <div class="tables-wrapper pt-30">
           <div class="row">
             <div class="col-lg-12">
               <div class="card-style mb-30">
@@ -57,7 +57,7 @@
                     <tbody>
                       <tr *ngFor="let billing of billings">
                         <td>{{ billing.billID }}</td>
-                        <td>{{ billing.customerID }}</td>
+                        <td>{{ billing.customerId }}</td>
                         <td>{{ billing.billingDate | date : "dd MMM. yy" }}</td>
                         <td>{{ billing.invoiceNumber }}</td>
                         <td>
@@ -93,11 +93,11 @@
                       Showing {{ billings.length }}/30 entries
                     </p>
                   </div>
-                  <app-pagination
+                  <!-- <app-pagination
                     [currentPage]="currentPage"
                     [totalPages]="totalPages"
                     (pageChange)="onPageChange($event)"
-                  ></app-pagination>
+                  ></app-pagination> -->
                 </div>
               </div>
             </div>

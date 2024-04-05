@@ -3,7 +3,7 @@ import { BillingService } from 'src/app/services/billing.service';
 
 interface Billing {
   billID: number;
-  customerID: number;
+  customerId: number;
   billingDate: string;
   createdAt: string;
   discountAmount: string;
