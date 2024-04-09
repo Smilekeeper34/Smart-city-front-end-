@@ -31,7 +31,7 @@
                   <table class="table">
                     <thead>
                       <tr>
-                        <th class="billing-id" style="width: 10%">
+                        <th class="billing-id" style="width: 15%">
                           <h6>Billing ID</h6>
                         </th>
                         <th class="customer-id" style="width: 15%">
@@ -46,10 +46,8 @@
                         <th class="payment-status" style="width: 15%">
                           <h6>Payment Status</h6>
                         </th>
-                        <th class="payment-method" style="width: 15%">
-                          <h6>Payment Method</h6>
-                        </th>
-                        <th class="action" style="width: 15%">
+                        
+                        <th class="action" style="width: 20%">
                           <h6>Action</h6>
                         </th>
                       </tr>
@@ -58,7 +56,7 @@
                       <tr *ngFor="let billing of billings">
                         <td>{{ billing.billID }}</td>
                         <td>{{ billing.customerId }}</td>
-                        <td>{{ billing.billingDate | date : "dd MMM. yy" }}</td>
+                        <td>{{ billing.billingDate | date : "dd MMM. yy hh:mm a z':'+0200'" }}</td>
                         <td>{{ billing.invoiceNumber }}</td>
                         <td>
                           <span
@@ -73,14 +71,15 @@
                             >{{ billing.paymentStatus }}</span
                           >
                         </td>
-                        <td>{{ billing.paymentMethod }}</td>
+                        
                         <td>
                           <div class="action">
-                            <button class="text-danger">
-                              <i class="lni lni-trash-can"></i>
+                            <button class="text-secondary-emphasis" (click)="getByInvoice(billing.invoiceNumber)">
+                              <i class="lni lni-book"> View Bill</i>
                             </button>
                           </div>
                         </td>
+                        
                       </tr>
                     </tbody>
                   </table>
@@ -90,7 +89,7 @@
                 >
                   <div class="left">
                     <p class="text-sm text-gray">
-                      Showing {{ billings.length }}/30 entries
+                      Showing {{ billings.length }}
                     </p>
                   </div>
                   <!-- <app-pagination

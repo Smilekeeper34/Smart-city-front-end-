@@ -56,6 +56,7 @@ export class AuthService {
             preferredCommunicationMethod: customer.preferredCommunicationMethod,
             isActive: customer.isActive,
             isVIP: customer.isVIP,
+            accountType:customer.accountType,
             residentialType: customer.residentialType,
             numberOfOccupants: customer.numberOfOccupants,
             monthlyIncome: customer.monthlyIncome,

@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { PagesRoutes } from './billing/resident/pages.routing';
 import { AppComponent } from './app.component';
@@ -38,6 +39,9 @@ import { GenerateInvoiceComponent } from './billing/admin/generate-invoice/gener
 import { ViewInvoicesComponent } from './billing/admin/view-invoices/view-invoices.component';
 import { AddHouseComponent } from './billing/resident/add-house/add-house.component';
 import { ViewHousesComponent } from './billing/resident/view-houses/view-houses.component';
+import { WaterUsageComponent } from './billing/resident/water-usage/water-usage.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
+
 
 @NgModule({
   declarations: [
@@ -70,7 +74,9 @@ import { ViewHousesComponent } from './billing/resident/view-houses/view-houses.
     GenerateInvoiceComponent,
     ViewInvoicesComponent,
     AddHouseComponent,
-    ViewHousesComponent
+    ViewHousesComponent,
+    WaterUsageComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -78,7 +84,7 @@ import { ViewHousesComponent } from './billing/resident/view-houses/view-houses.
     PagesRoutes,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,NgApexchartsModule,
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

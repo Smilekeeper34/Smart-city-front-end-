@@ -1,96 +1,136 @@
 <!-- ========== section start ========== -->
 <section>
-    <div class="container-fluid">
-      
-
-      <!-- Invoice Wrapper Start -->
-      <div class="invoice-wrapper pt-30">
-        <div class="row">
-          <div class="col-12">
-            <div class="invoice-card card-style mb-30">
-              <div class="invoice-header">
-      
-                <div class="invoice-header"> 
-                  <div class="invoice-billing-info"> 
+  <div class="container-fluid">
+    <!-- Invoice Wrapper Start -->
+    <div class="invoice-wrapper pt-30">
+      <div class="row">
+        <div class="col-12">
+          <div class="invoice-card card-style mb-30">
+            <div class="invoice-header">
+              <div class="invoice-header ">
+                <div class="row">
+                  <div class="invoice-billing-info col-8">
                     <h2>Billing Information</h2>
-                    <p><span>Bill ID:</span> {{ invoiceData?.billingInvoice?.billing?.billID }}</p>
-                    <p><span>Customer ID:</span> {{ invoiceData?.billingInvoice?.billing?.customerId }}</p>           
-                    <p><span>Invoice Number:</span> {{ invoiceData?.billingInvoice?.billing?.invoiceNumber }}</p>
-                    <p><span>Billing Date:</span> {{ invoiceData?.billingInvoice?.billing?.billingDate | date:'short' }}</p>
-                    <p><span>Due Date:</span> {{ invoiceData?.billingInvoice?.billing?.dueDate | date:'short' }}</p>
-                    </div> 
+                    <br />
+                    <p>
+                      <span>Bill ID:</span>
+                      {{ invoiceData?.billingInvoice?.billing?.billID }}
+                    </p>
+                    <p>
+                      <span>Customer ID:</span>
+                      {{ invoiceData?.billingInvoice?.billing?.customerId }}
+                    </p>
+                    <p>
+                      <span>House ID:</span>
+                      {{ invoiceData?.billingInvoice?.billing?.houseId }}
+                    </p>
+                    <p>
+                      <span>Invoice Number:</span>
+                      {{ invoiceData?.billingInvoice?.billing?.invoiceNumber }}
+                    </p>
+                    <p>
+                      <span>Billing Date:</span>
+                      {{
+                        invoiceData?.billingInvoice?.billing?.billingDate
+                          | date : "short"
+                      }}
+                    </p>
+                    <p>
+                      <span>Due Date:</span>
+                      {{
+                        invoiceData?.billingInvoice?.billing?.dueDate
+                          | date : "short"
+                      }}
+                    </p>
+                  </div>
+                  <div class="col-4 float-right">
+                    <img
+                      src="assets/images/logo.png"
+                      alt=""
+                      style="width: 90px"
+                    />
+                  </div>
                 </div>
               </div>
-              <div class="table-responsive">
-                <table class="invoice-table table">
-                  <thead>
-                    <tr>
-                      <th class="service">
-                        <h6 class="text-sm text-medium">Service</h6>
-                      </th>
-                     
-                      <th class="qty">
-                        <h6 class="text-sm text-medium">Unit Rate Price</h6>
-                      </th>
-                      <th class="amount">
-                        <h6 class="text-sm text-medium">Amounts</h6>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody *ngIf="invoiceData?.billingInvoice">
-                    <tr *ngFor="let detail of invoiceData?.billingInvoice?.billingDetails">
-                      <td>
-                        <p class="text-sm">{{ detail.description }}</p>
-                      </td>
-                      
-                      <td>
-                        <p class="text-sm">{{ detail.unitPrice }}</p>
-                      </td>
-                      <td>
-                        <p class="text-sm">{{ detail.totalAmount }}</p>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-  
-              <div class="note-wrapper warning-alert py-4 px-sm-3 px-lg-5">
-                <div class="alert">
-                  <h5 class="text-bold mb-15">Notes:</h5>
-                  <p class="text-sm text-gray">
-                    All accounts are to be paid within 7 days from receipt
-                    of invoice. To be paid by cheque or credit card or
-                    direct payment online. If account is not paid within 7
-                    days the credits details supplied as confirmation of
-                    work undertaken will be charged the agreed quoted fee
-                    noted above.
-                  </p>
-                </div>
-              </div>
-              <div class="invoice-action">
-                <ul class="d-flex flex-wrap align-items-center justify-content-center">
-                  <li class="m-2" aria-disabled="true">
-                    <a  class="main-btn primary-btn-outline btn-hover">
-                      Download Invoice
-                    </a>
-                  </li>
-                  <li class="m-2">
-                    <a routerLink="/payment" class="main-btn primary-btn btn-hover">
-                      PAY BILL : $ {{ invoiceData?.billingInvoice?.billing?.totalBillAmount}}
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              
             </div>
-            <!-- End Card -->
+            <div class="table-responsive">
+              <table class="invoice-table table">
+                <thead>
+                  <tr>
+                    <th class="service">
+                      <h6 class="text-sm text-medium">Service</h6>
+                    </th>
+
+                    <th class="qty">
+                      <h6 class="text-sm text-medium">Unit Rate Price</h6>
+                    </th>
+                    <th class="amount">
+                      <h6 class="text-sm text-medium">Amounts</h6>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody *ngIf="invoiceData?.billingInvoice">
+                  <tr
+                    *ngFor="
+                      let detail of invoiceData?.billingInvoice?.billingDetails
+                    "
+                  >
+                    <td>
+                      <p class="text-sm">{{ detail.description }}</p>
+                    </td>
+
+                    <td>
+                      <p class="text-sm">{{ detail.unitPrice }}</p>
+                    </td>
+                    <td>
+                      <p class="text-sm">{{ detail.totalAmount }}</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="note-wrapper warning-alert py-4 px-sm-3 px-lg-5">
+              <div class="alert">
+                <h5 class="text-bold mb-15">Notes:</h5>
+                <p class="text-sm text-gray">
+                  All accounts are to be paid within 7 days from receipt of
+                  invoice. To be paid by cheque or credit card or direct payment
+                  online. If account is not paid within 7 days the credits
+                  details supplied as confirmation of work undertaken will be
+                  charged the agreed quoted fee noted above.
+                </p>
+              </div>
+            </div>
+            <div class="invoice-action">
+              <ul
+                class="d-flex flex-wrap align-items-center justify-content-center"
+              >
+                <li class="m-2" aria-disabled="true">
+                  <a class="main-btn primary-btn-outline btn-hover">
+                    Download Invoice
+                  </a>
+                </li>
+                <li class="m-2">
+                  <a
+                    routerLink="/payment"
+                    class="main-btn primary-btn btn-hover"
+                  >
+                    PAY BILL : $
+                    {{ invoiceData?.billingInvoice?.billing?.totalBillAmount }}
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
-          <!-- ENd Col -->
+          <!-- End Card -->
         </div>
-        <!-- End Row -->
+        <!-- ENd Col -->
       </div>
-      <!-- Invoice Wrapper End -->
+      <!-- End Row -->
     </div>
-    <!-- end container -->
-  </section>
-  <!-- ========== section end ========== -->
+    <!-- Invoice Wrapper End -->
+  </div>
+  <!-- end container -->
+</section>
+<!-- ========== section end ========== -->

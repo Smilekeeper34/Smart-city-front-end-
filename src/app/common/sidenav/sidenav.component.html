@@ -2,9 +2,14 @@
  <aside class="sidebar-nav-wrapper">
     
     <nav class="sidebar-nav pt-5">
+      <div class="promo-box bottom-div">
+        <div class="promo-icon">
+          <img class="mx-auto" src="assets/images/logo.png" alt="Logo" style="height: 100%;">
+        </div>
+      </div>
       <ul>
-
-        <li class="nav-item" *ngFor="let item of menuItems" [class.activeRoute]="isActive(item.link)">
+        <ng-container *ngFor="let item of menuItems">
+        <li class="nav-item"  [class.activeRoute]="isActive(item.link)" *ngIf="hasAccess(item)">
           <a [routerLink]="item.link" (click)="changeRouter(item.link)">
             <span class="icon"><i [class]="item.icon"></i></span>
             <span>
@@ -12,13 +17,11 @@
             </span>
           </a>
         </li>
-        
+      </ng-container>
       </ul>
     </nav>
     <div class="promo-box bottom-div">
-      <div class="promo-icon">
-        <img class="mx-auto" src="assets/images/logo.png" alt="Logo" style="height: 100%;">
-      </div>
+      
       <a  routerLink="/login" rel="nofollow" class="main-btn primary-btn btn-hover">
         SIGN OUT <i class="bi bi-box-arrow-left"></i>
       </a>

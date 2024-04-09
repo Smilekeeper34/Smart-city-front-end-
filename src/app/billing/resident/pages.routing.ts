@@ -15,6 +15,8 @@ import { ResidentProfileComponent } from './resident-profile/resident-profile.co
 import { TarriffTableComponent } from '../admin/tarriff-table/tarriff-table.component';
 import { GenerateInvoiceComponent } from '../admin/generate-invoice/generate-invoice.component';
 import { AddHouseComponent } from './add-house/add-house.component';
+import { RoleGuard } from 'src/app/tools/helpers/role.guard';
+import { WaterUsageComponent } from './water-usage/water-usage.component';
 
 const childRoutes: Routes = [
   { path: 'dashboard', component: ResidentDashboardComponent },
@@ -30,13 +32,15 @@ const childRoutes: Routes = [
   { path: 'createtarriff', component: CreateTarriffsComponent },
   { path: 'tarriffTable', component: TarriffTableComponent },
   { path: 'customers', component: AllCustomersComponent },
+  { path: 'invoice/:invoiceNumber', component: ResidentBillInvoiceComponent },
+  { path: 'usagechart',component:WaterUsageComponent}
 ];
 
 const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard,RoleGuard],
     children: childRoutes,
   },
 ];

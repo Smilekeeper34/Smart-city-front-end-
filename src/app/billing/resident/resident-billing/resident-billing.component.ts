@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { BillingService } from 'src/app/services/billing.service';
 
 interface Billing {
@@ -26,7 +27,7 @@ interface Billing {
 
 export class ResidentBillingComponent {
   billings: Billing[] = [];
-  constructor(private billingService: BillingService) {}
+  constructor(private billingService: BillingService,private router: Router) {}
   ngOnInit() {
     // Assuming you fetch the data from a service
     this.billingService.getAllBillingDetails().subscribe(
@@ -58,5 +59,8 @@ export class ResidentBillingComponent {
 
   onPageChange(page: number): void {
     this.currentPage = page;
+  }
+  getByInvoice(invoiceNumber: string): void {
+    this.router.navigate(['/invoice', invoiceNumber]);
   }
 }

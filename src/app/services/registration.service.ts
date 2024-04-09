@@ -79,7 +79,7 @@ export class RegistrationService {
 
           this.userService.setUser(userDetails);
           localStorage.setItem('token', token);
-
+          console.log(response);
           return this.fetchCustomer();
         } else {
           return throwError(() => new Error('Registration failed'));

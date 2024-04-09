@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { catchError, Observable, of, switchMap, throwError } from 'rxjs';
+import { DataShareService } from './DataShareService.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class HouseService {
 
   private baseUrl = 'http://localhost:3000/api/houses';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient , private dataShareService: DataShareService) { }
 
   createHouse(houseData: any, customerId: string): Observable<any> {
     const headers = new HttpHeaders({
@@ -26,4 +27,12 @@ export class HouseService {
     });
     return this.http.get(`${this.baseUrl}/getAll`, { headers });
   }
+  getHousesByCustomerId(customerId: string): Observable<any> {
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${localStorage.getItem('token')}`
+    });
+
+    return this.http.get(`${this.baseUrl}/getHousesByCustomerId/${customerId}`, { headers });
+  }
+  
 }

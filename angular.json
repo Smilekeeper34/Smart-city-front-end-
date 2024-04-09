@@ -48,7 +48,8 @@
               "src/assets/js/quill.min.js",
               "src/assets/js/datatable.js",
               "src/assets/js/Sortable.min.js",
-              "src/assets/js/main.js"
+              "src/assets/js/main.js",
+              "node_modules/apexcharts/dist/apexcharts.min.js"
             ]
           },
           "configurations": {

@@ -1,12 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { BillingService } from 'src/app/services/billing.service';
-
-interface BillingDetail {
-  description: string;
-  quantity: number;
-  totalAmount: number;
-  // Add other properties if needed
-}
 
 @Component({
   selector: 'app-resident-bill-invoice',
@@ -14,13 +8,19 @@ interface BillingDetail {
   styleUrls: ['./resident-bill-invoice.component.scss'],
 })
 export class ResidentBillInvoiceComponent implements OnInit {
-  billings: any[] = [];
+  invoiceNumber: string;
   invoiceData: any;
 
-  constructor(private billingService: BillingService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private billingService: BillingService
+  ) {}
 
   ngOnInit(): void {
-    this.loadInvoiceData('INV-7078');
+    this.route.params.subscribe(params => {
+      this.invoiceNumber = params['invoiceNumber']; // Assuming 'invoiceNumber' is the route parameter
+      this.loadInvoiceData(this.invoiceNumber);
+    });
   }
 
   loadInvoiceData(invoiceNumber: string): void {

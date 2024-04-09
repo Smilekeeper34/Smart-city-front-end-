@@ -1,7 +1,7 @@
 // user.service.ts
 
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -16,10 +16,11 @@ export class UserService {
     this.userSubject.next(user);
     this.getUser();
   }
-  getUser(){
-    this.userSubject.next(JSON.parse(localStorage.getItem('user')));
-    this.userSubject.subscribe((res)=>{
-      console.log(res)
-    })
+  getUser(): any{
+    // this.userSubject.next(JSON.parse(localStorage.getItem('user')));
+    // this.userSubject.subscribe((res)=>{
+    //   console.log(res)
+    // })
+    return JSON.parse(localStorage.getItem('user'));
   }
 }
